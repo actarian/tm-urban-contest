@@ -1,0 +1,69 @@
+
+
+@mixin absolute-center {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+@mixin bouncing-ball($color: white, $size: 4px) {
+	@include absolute-center;
+	content: '';
+	display: block;
+	width: $size;
+	height: $size;
+	margin-top: $size;
+	margin-left: $size * -0.5;
+	border-radius: 50%;
+	background: $color;
+	z-index: 2;
+	animation: bouncing-ball .45s cubic-bezier(0, 0, 0.15, 1) alternate infinite;
+}
+
+@mixin bouncing-loader($color: white, $size: 4px) {
+	position: relative;
+	user-select: none;
+	pointer-events: none;
+	transition: none;
+
+	&,
+	&:hover,
+	&:focus,
+	&:active,
+	&.active {
+		color: rgba(0, 0, 0, 0) !important;
+	}
+
+	svg {
+		visibility: hidden;
+	}
+
+	&:before {
+		@include bouncing-ball($color, $size);
+		animation-delay: .15s;
+	}
+
+	&>span {
+		&::before {
+			@include bouncing-ball($color, $size);
+			margin-left: $size * -2.8;
+		}
+
+		&::after {
+			@include bouncing-ball($color, $size);
+			margin-left: $size * 1.8;
+			animation-delay: .3s;
+		}
+	}
+}
+
+@keyframes bouncing-ball {
+	from {
+		transform: translateY(0) scaleY(.8);
+	}
+
+	to {
+		transform: translateY(-10px);
+	}
+}

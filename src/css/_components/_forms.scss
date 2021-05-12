@@ -1,0 +1,221 @@
+$family: $font-secondary;
+$size: 0.8em;
+$weight: $font-light;
+$spacing: 0;
+$line: 1;
+$pristine: $foreground;
+$dirty: $foreground;
+$touched: $foreground;
+$valid: $foreground;
+$invalid: $foreground-primary;
+
+%placeholder {
+	text-transform: none;
+	color: $foreground-dimmed;
+}
+
+@mixin autofill($size: $size, $weight: $weight, $line: $line, $spacing: $spacing, $family: $family, $color: black, $background: white, $borderColor: transparent, $borderWidth: 0px, $borderRadius: 0px) {
+	background: $background;
+	color: $color;
+	border: $borderWidth solid $borderColor;
+	border-radius: $borderRadius;
+	outline: none;
+
+	&:-webkit-autofill,
+	&:-webkit-autofill:hover,
+	&:-webkit-autofill:focus {
+		background: $background;
+		color: $color;
+		border: $borderWidth solid $borderColor;
+		border-radius: $borderRadius;
+		font-family: $family;
+		font-size: $size;
+		font-weight: $weight;
+		letter-spacing: $spacing;
+		line-height: $line;
+		text-transform: none; // uppercase;
+		-webkit-text-fill-color: $color;
+		box-shadow: 0 0 0px 1000px $background inset;
+		transition: background-color 5000s ease-in-out 0s;
+	}
+
+	&::placeholder {
+		font-family: $family;
+		font-size: $size;
+		font-weight: $weight;
+		letter-spacing: $spacing;
+		line-height: $line * 2;
+		@extend %placeholder;
+	}
+}
+
+.group--form {
+	padding: 80px;
+	background: $background-primary;
+
+	.btn {
+		@extend %btn-rect-stroked;
+	}
+
+	.btn--next {
+		@extend %btn-rect;
+	}
+
+	.btn--telegram {
+		@extend %btn-rect;
+	}
+
+	.group--cta {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		.btn {
+			font-size: 24px;
+		}
+
+		&>.btn+.btn {
+			margin-left: 20px;
+		}
+	}
+}
+
+.group--control--file {
+	position: relative;
+	display: flex;
+	align-items: center;
+
+	input {
+		width: 100%;
+		height: 100%;
+		border: none;
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		opacity: 0;
+		cursor: pointer;
+	}
+
+	.control {
+		margin-right: 20px;
+		pointer-events: none;
+	}
+
+	.btn {
+		pointer-events: none;
+	}
+
+	&:hover {
+
+		.btn {
+			background: #eee;
+			color: #552453;
+		}
+	}
+}
+
+.group--control {
+	padding: 0 10px;
+	margin-bottom: 50px;
+
+	label {
+		display: block;
+		font-family: $font-secondary;
+		font-size: 18px;
+		line-height: 1;
+		transition: transform ease-in-out 350ms;
+	}
+
+	.control {
+		@include autofill(21px, 300, 2, 0, $font-secondary, white, transparent);
+		display: block;
+		width: 100%;
+		appearance: none;
+		background: none;
+		border: none;
+		outline: none;
+		border-bottom: 2px solid white;
+		font-family: $font-secondary;
+		color: white;
+		line-height: 2;
+		font-size: 21px;
+	}
+
+	&.active {
+		label {
+			transform: translateY(20px);
+		}
+	}
+}
+
+.control--select {
+	min-height: 45px;
+	border: none;
+	outline: none;
+	width: 100%;
+	line-height: 2;
+	font-size: 22px;
+	border-bottom: 2px solid white;
+	background: transparent;
+	color: white;
+}
+
+.group--checkbox {
+	max-width: 420px;
+	margin: 0 auto 20px auto;
+	position: relative;
+
+	label {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+
+		&>svg {
+			display: none;
+			flex: 0 0 20px;
+			width: 20px;
+			height: 20px;
+			margin: 10px 10px;
+			line-height: 0;
+			fill: currentColor;
+		}
+
+		&>span {
+			flex: 1 1 auto;
+			font-family: $font-secondary;
+			font-size: 18px;
+			text-transform: none;
+
+			&>a {
+				@extend %btn-link;
+				font-weight: 500;
+			}
+		}
+	}
+
+	input[type="checkbox"] {
+		position: absolute;
+		visibility: hidden;
+
+		&:not(:checked)+label .icon-checkbox {
+			display: flex;
+		}
+
+		&:checked+label .icon-checkbox-checked {
+			display: flex;
+		}
+	}
+}
+
+.group--controls {
+	display: flex;
+	flex-wrap: wrap;
+
+	&>.group--control {
+		flex: 1 1 50%;
+		max-width: 50%;
+	}
+}

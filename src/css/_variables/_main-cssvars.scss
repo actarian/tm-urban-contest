@@ -1,0 +1,50 @@
+@import 'shared';
+
+body {
+	--font-primary: #{$font-primary};
+	--font-secondary: #{$font-secondary};
+	--font-size: #{$font-size};
+	--line-height: #{$line-height};
+	--font-extralight: #{$font-extralight};
+	--font-light: #{$font-light};
+	--font-regular: #{$font-regular};
+	--font-semibold: #{$font-semibold};
+	--font-bold: #{$font-bold};
+	--font-extrabold: #{$font-extrabold};
+	--font-black: #{$font-black};
+	--btn-radius: #{$btn-radius};
+	--card-radius: #{$card-radius};
+	--bullet-size: #{$bullet-size};
+}
+
+@import 'main';
+
+body {
+	--background: #{$background};
+	--background-negative: #{$background-negative};
+	--background-primary: #{$background-primary};
+	--background-secondary: #{$background-secondary};
+	--background-tertiary: #{$background-tertiary};
+	--background-disabled: #{$background-disabled};
+	--background-dimmed: #{$background-dimmed};
+	--foreground: #{$foreground};
+	--foreground-negative: #{$foreground-negative};
+	--foreground-primary: #{$foreground-primary};
+	--foreground-secondary: #{$foreground-secondary};
+	--foreground-tertiary: #{$foreground-tertiary};
+	--foreground-disabled: #{$foreground-disabled};
+	--foreground-dimmed: #{$foreground-dimmed};
+	--border: #{$border};
+	--shadow: #{$shadow};
+	--black-10: #{$black-10};
+	--black-20: #{$black-20};
+	--black-30: #{$black-30};
+	--black-40: #{$black-40};
+	--black-50: #{$black-50};
+	--black-60: #{$black-60};
+	--black-70: #{$black-70};
+	--black-80: #{$black-80};
+	--black-90: #{$black-90};
+}
+
+@import 'cssvars';

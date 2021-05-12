@@ -1,0 +1,21 @@
+{
+  "author": "Luca Zampetti <lzampetti@gmail.com>",
+  "name": "tm-urban-contest",
+  "description": "tm-urban-contest",
+  "version": "1.0.0",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/actarian/tm-urban-contest.git"
+  },
+  "engines": {
+    "node": "10.x"
+  },
+  "scripts": {},
+  "dependencies": {
+    "gsap": "3.6.0"
+  },
+  "devDependencies": {
+    "gulpfile-config": "1.0.0-alpha.14"
+  }
+}

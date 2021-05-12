@@ -1,0 +1,59 @@
+[urban-enter] {
+	opacity: 0;
+
+	&:not(.enter) {
+		animation: right-out 500ms cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards;
+	}
+
+	&.enter {
+		animation: right-in 500ms cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards;
+	}
+}
+
+@keyframes right-out {
+	0% {
+		transform: translateX(0);
+		opacity: 1;
+	}
+
+	100% {
+		transform: translateX(60px);
+		opacity: 0;
+	}
+}
+
+@keyframes right-in {
+	0% {
+		transform: translateX(60px);
+		opacity: 0;
+	}
+
+	100% {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+
+@keyframes bottom-out {
+	0% {
+		transform: translateY(0);
+		opacity: 1;
+	}
+
+	100% {
+		transform: translateY(60px);
+		opacity: 0;
+	}
+}
+
+@keyframes bottom-in {
+	0% {
+		transform: translateY(60px);
+		opacity: 0;
+	}
+
+	100% {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}

@@ -1,0 +1,21 @@
+body {
+	font-size: inherit;
+	font-family: $font-primary;
+	font-weight: $font-light;
+	line-height: $line-height;
+	background: $background;
+	color: $foreground;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-size: inherit;
+	font-weight: inherit;
+	line-height: inherit;
+	margin: 0;
+	padding: 0;
+}

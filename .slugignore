@@ -1,0 +1,6 @@
+# Heres a comment
+*.psd
+/docs/textures
+/docs/models
+/docs/uploads
+# /docs/fonts

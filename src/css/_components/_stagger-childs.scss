@@ -1,0 +1,23 @@
+@keyframes stagger-childs {
+	0% {
+		transform: translateY(10px);
+		opacity: 0;
+	}
+
+	100% {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+.stagger--childs {
+	&>* {
+		animation: stagger-childs 500ms cubic-bezier(0.250, 0.460, 0.450, 0.940) backwards;
+
+		@for $i from 1 through 20 {
+			&:nth-child(#{$i}) {
+				animation-delay: #{0.1 + $i * .05}s;
+			}
+		}
+	}
+}

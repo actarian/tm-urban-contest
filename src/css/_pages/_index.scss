@@ -308,7 +308,45 @@ body {
 		.group--form {
 			padding: 80px 80px 200px 80px;
 			background: $background-primary;
+
+			.btn {
+				@extend %btn-rect-stroked;
+			}
+
+			.btn--next {
+				@extend %btn-rect;
+
+				svg {
+					fill: currentColor;
+				}
+			}
+
+			.btn--telegram {
+				@extend %btn-rect;
+
+				svg {
+					fill: currentColor;
+				}
+			}
+
+			.group--cta {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				margin-top: 120px;
+
+				.btn {
+					font-size: 24px;
+					padding: 20px 30px;
+					min-width: 130px;
+				}
+
+				&>.btn+.btn {
+					margin-left: 20px;
+				}
+			}
 		}
+
 
 		.form__title {
 			font-size: 68px;
@@ -373,17 +411,21 @@ body {
 				flex: 1 1 100%;
 				max-width: 100%;
 			}
+
+			.group--cta {
+				margin-top: 60px;
+			}
 		}
 	}
 
 	#step-3 {
 		.form__abstract {
-			margin: 70px 0 120px 0;
+			margin: 70px 0 0 0;
 		}
 
 		@media (max-width: 1023px) {
 			.form__abstract {
-				margin: 70px 0 60px 0;
+				margin: 70px 0 0 0;
 			}
 		}
 	}

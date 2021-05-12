@@ -2374,23 +2374,6 @@ h6 {
   text-transform: none;
   color: var(--foreground-dimmed); }
 
-.group--form .btn--next svg {
-  fill: currentColor; }
-
-.group--form .btn--telegram svg {
-  fill: currentColor; }
-
-.group--form .group--cta {
-  display: flex;
-  justify-content: center;
-  align-items: center; }
-  .group--form .group--cta .btn {
-    font-size: 24px;
-    padding: 20px 30px;
-    min-width: 130px; }
-  .group--form .group--cta > .btn + .btn {
-    margin-left: 20px; }
-
 .group--control--file {
   position: relative;
   display: flex;
@@ -2523,7 +2506,7 @@ h6 {
     flex: 1 1 50%;
     max-width: 50%; }
 
-.group--form .btn, .group--form .btn--next, .group--form .btn--telegram, .group--checkbox label > span > a, .btn, .page--tm-urban-edition .nav--social > .nav__item > a, .page--tm-urban-edition .nav--colophon > .nav__item > a {
+.page--tm-urban-edition .section--form .group--form .btn, .page--tm-urban-edition .section--form .group--form .btn--next, .page--tm-urban-edition .section--form .group--form .btn--telegram, .group--checkbox label > span > a, .btn, .page--tm-urban-edition .nav--social > .nav__item > a, .page--tm-urban-edition .nav--colophon > .nav__item > a {
   display: inline-block;
   padding: 0;
   border: none;
@@ -2534,20 +2517,20 @@ h6 {
   font: inherit;
   cursor: pointer;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
-  .group--form .btn, .group--form .btn--next, .group--form .btn--telegram, .group--checkbox label > span > a, .btn, .page--tm-urban-edition .nav--social > .nav__item > a, .page--tm-urban-edition .nav--colophon > .nav__item > a, .group--form .btn--next:active, .group--form .btn--telegram:active, .group--checkbox label > span > a:active, .btn:active, .page--tm-urban-edition .nav--social > .nav__item > a:active, .page--tm-urban-edition .nav--colophon > .nav__item > a:active, .group--form .btn--next:focus, .group--form .btn--telegram:focus, .group--checkbox label > span > a:focus, .btn:focus, .page--tm-urban-edition .nav--social > .nav__item > a:focus, .page--tm-urban-edition .nav--colophon > .nav__item > a:focus, .group--form .btn--next:hover, .group--form .btn--telegram:hover, .group--checkbox label > span > a:hover, .btn:hover, .page--tm-urban-edition .nav--social > .nav__item > a:hover, .page--tm-urban-edition .nav--colophon > .nav__item > a:hover, .group--form .btn--next:visited, .group--form .btn--telegram:visited, .group--checkbox label > span > a:visited, .btn:visited, .page--tm-urban-edition .nav--social > .nav__item > a:visited, .page--tm-urban-edition .nav--colophon > .nav__item > a:visited {
+  .page--tm-urban-edition .section--form .group--form .btn, .page--tm-urban-edition .section--form .group--form .btn--next, .page--tm-urban-edition .section--form .group--form .btn--telegram, .group--checkbox label > span > a, .btn, .page--tm-urban-edition .nav--social > .nav__item > a, .page--tm-urban-edition .nav--colophon > .nav__item > a, .page--tm-urban-edition .section--form .group--form .btn:active, .page--tm-urban-edition .section--form .group--form .btn--next:active, .page--tm-urban-edition .section--form .group--form .btn--telegram:active, .group--checkbox label > span > a:active, .btn:active, .page--tm-urban-edition .nav--social > .nav__item > a:active, .page--tm-urban-edition .nav--colophon > .nav__item > a:active, .page--tm-urban-edition .section--form .group--form .btn:focus, .page--tm-urban-edition .section--form .group--form .btn--next:focus, .page--tm-urban-edition .section--form .group--form .btn--telegram:focus, .group--checkbox label > span > a:focus, .btn:focus, .page--tm-urban-edition .nav--social > .nav__item > a:focus, .page--tm-urban-edition .nav--colophon > .nav__item > a:focus, .page--tm-urban-edition .section--form .group--form .btn:hover, .page--tm-urban-edition .section--form .group--form .btn--next:hover, .page--tm-urban-edition .section--form .group--form .btn--telegram:hover, .group--checkbox label > span > a:hover, .btn:hover, .page--tm-urban-edition .nav--social > .nav__item > a:hover, .page--tm-urban-edition .nav--colophon > .nav__item > a:hover, .page--tm-urban-edition .section--form .group--form .btn:visited, .page--tm-urban-edition .section--form .group--form .btn--next:visited, .page--tm-urban-edition .section--form .group--form .btn--telegram:visited, .group--checkbox label > span > a:visited, .btn:visited, .page--tm-urban-edition .nav--social > .nav__item > a:visited, .page--tm-urban-edition .nav--colophon > .nav__item > a:visited {
     color: inherit;
     text-decoration: none;
     outline: none; }
 
-.group--form .btn, .group--form .btn--next, .group--form .btn--telegram, .group--checkbox label > span > a, .btn, .page--tm-urban-edition .nav--social > .nav__item > a, .page--tm-urban-edition .nav--colophon > .nav__item > a {
+.page--tm-urban-edition .section--form .group--form .btn, .page--tm-urban-edition .section--form .group--form .btn--next, .page--tm-urban-edition .section--form .group--form .btn--telegram, .group--checkbox label > span > a, .btn, .page--tm-urban-edition .nav--social > .nav__item > a, .page--tm-urban-edition .nav--colophon > .nav__item > a {
   transition: cubic-bezier(0.65, 0.05, 0.36, 1) 350ms; }
-  .group--form .btn--next[disabled], .group--form .btn--telegram[disabled], .group--checkbox label > span > a[disabled], .btn[disabled], .page--tm-urban-edition .nav--social > .nav__item > a[disabled], .page--tm-urban-edition .nav--colophon > .nav__item > a[disabled] {
+  .page--tm-urban-edition .section--form .group--form .btn[disabled], .page--tm-urban-edition .section--form .group--form .btn--next[disabled], .page--tm-urban-edition .section--form .group--form .btn--telegram[disabled], .group--checkbox label > span > a[disabled], .btn[disabled], .page--tm-urban-edition .nav--social > .nav__item > a[disabled], .page--tm-urban-edition .nav--colophon > .nav__item > a[disabled] {
     opacity: 0.5;
     pointer-events: none; }
 
-.group--form .btn, .group--form .btn--next, .group--form .btn--telegram {
+.page--tm-urban-edition .section--form .group--form .btn, .page--tm-urban-edition .section--form .group--form .btn--next, .page--tm-urban-edition .section--form .group--form .btn--telegram {
   position: relative; }
-  .group--form .btn:before, .group--form .btn--next:before, .group--form .btn--telegram:before, .group--form .btn:after, .group--form .btn--next:after, .group--form .btn--telegram:after {
+  .page--tm-urban-edition .section--form .group--form .btn:before, .page--tm-urban-edition .section--form .group--form .btn--next:before, .page--tm-urban-edition .section--form .group--form .btn--telegram:before, .page--tm-urban-edition .section--form .group--form .btn:after, .page--tm-urban-edition .section--form .group--form .btn--next:after, .page--tm-urban-edition .section--form .group--form .btn--telegram:after {
     content: '';
     position: absolute;
     width: 100%;
@@ -2555,11 +2538,11 @@ h6 {
     left: 0;
     top: 0;
     transition: all 0.6s cubic-bezier(0.65, 0.05, 0.36, 1); }
-  .group--form .btn:before, .group--form .btn--next:before, .group--form .btn--telegram:before {
+  .page--tm-urban-edition .section--form .group--form .btn:before, .page--tm-urban-edition .section--form .group--form .btn--next:before, .page--tm-urban-edition .section--form .group--form .btn--telegram:before {
     width: 0;
     z-index: 1;
     transition-delay: 0.2s; }
-  .group--form .btn:after, .group--form .btn--next:after, .group--form .btn--telegram:after {
+  .page--tm-urban-edition .section--form .group--form .btn:after, .page--tm-urban-edition .section--form .group--form .btn--next:after, .page--tm-urban-edition .section--form .group--form .btn--telegram:after {
     content: attr(data-title);
     width: 0;
     height: auto;
@@ -2568,28 +2551,28 @@ h6 {
     text-align: center;
     z-index: 10;
     transition-delay: 0s; }
-  .group--form .btn:hover:before, .group--form .btn--next:hover:before, .group--form .btn--telegram:hover:before, .group--form .active.btn:before, .group--form .active.btn--next:before, .group--form .active.btn--telegram:before {
+  .page--tm-urban-edition .section--form .group--form .btn:hover:before, .page--tm-urban-edition .section--form .group--form .btn--next:hover:before, .page--tm-urban-edition .section--form .group--form .btn--telegram:hover:before, .page--tm-urban-edition .section--form .group--form .active.btn:before, .page--tm-urban-edition .section--form .group--form .active.btn--next:before, .page--tm-urban-edition .section--form .group--form .active.btn--telegram:before {
     width: 100%;
     transition-delay: 0s; }
-  .group--form .btn:hover:after, .group--form .btn--next:hover:after, .group--form .btn--telegram:hover:after, .group--form .active.btn:after, .group--form .active.btn--next:after, .group--form .active.btn--telegram:after {
+  .page--tm-urban-edition .section--form .group--form .btn:hover:after, .page--tm-urban-edition .section--form .group--form .btn--next:hover:after, .page--tm-urban-edition .section--form .group--form .btn--telegram:hover:after, .page--tm-urban-edition .section--form .group--form .active.btn:after, .page--tm-urban-edition .section--form .group--form .active.btn--next:after, .page--tm-urban-edition .section--form .group--form .active.btn--telegram:after {
     width: 100%;
     transition-delay: 0.2s; }
   @media (min-width: 768px) {
-    .group--form .btn, .group--form .btn--next, .group--form .btn--telegram {
+    .page--tm-urban-edition .section--form .group--form .btn, .page--tm-urban-edition .section--form .group--form .btn--next, .page--tm-urban-edition .section--form .group--form .btn--telegram {
       padding: 15px 35px;
       font-size: 1.8rem; }
-      .group--form .btn:after, .group--form .btn--next:after, .group--form .btn--telegram:after {
+      .page--tm-urban-edition .section--form .group--form .btn:after, .page--tm-urban-edition .section--form .group--form .btn--next:after, .page--tm-urban-edition .section--form .group--form .btn--telegram:after {
         top: 15px;
         left: 35px; } }
   @media (max-width: 767.98px) {
-    .group--form .btn, .group--form .btn--next, .group--form .btn--telegram {
+    .page--tm-urban-edition .section--form .group--form .btn, .page--tm-urban-edition .section--form .group--form .btn--next, .page--tm-urban-edition .section--form .group--form .btn--telegram {
       padding: 10px 15px;
       font-size: 1.4rem; }
-      .group--form .btn:after, .group--form .btn--next:after, .group--form .btn--telegram:after {
+      .page--tm-urban-edition .section--form .group--form .btn:after, .page--tm-urban-edition .section--form .group--form .btn--next:after, .page--tm-urban-edition .section--form .group--form .btn--telegram:after {
         top: 10px;
         left: 15px; } }
 
-.group--form .btn {
+.page--tm-urban-edition .section--form .group--form .btn {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -2601,23 +2584,23 @@ h6 {
   font-size: 20px;
   font-weight: 600;
   min-width: 100px; }
-  .group--form .btn svg {
+  .page--tm-urban-edition .section--form .group--form .btn svg {
     width: 24px;
     height: 24px;
     margin-left: -10px;
     margin-right: 10px; }
-  .group--form .btn span {
+  .page--tm-urban-edition .section--form .group--form .btn span {
     display: block; }
-  .group--form .btn, .group--form .btn:active, .group--form .btn:focus, .group--form .btn:visited {
+  .page--tm-urban-edition .section--form .group--form .btn, .page--tm-urban-edition .section--form .group--form .btn:active, .page--tm-urban-edition .section--form .group--form .btn:focus, .page--tm-urban-edition .section--form .group--form .btn:visited {
     background: transparent;
     border-color: white;
     color: white; }
-  .group--form .btn:hover {
+  .page--tm-urban-edition .section--form .group--form .btn:hover {
     background: white;
     border-color: white;
     color: var(--foreground-primary); }
 
-.group--form .btn--next, .group--form .btn--telegram {
+.page--tm-urban-edition .section--form .group--form .btn--next, .page--tm-urban-edition .section--form .group--form .btn--telegram {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -2627,17 +2610,17 @@ h6 {
   padding: 10px 15px;
   font-size: 24px;
   font-weight: 600; }
-  .group--form .btn--next svg, .group--form .btn--telegram svg {
+  .page--tm-urban-edition .section--form .group--form .btn--next svg, .page--tm-urban-edition .section--form .group--form .btn--telegram svg {
     width: 24px;
     height: 24px;
     margin-left: -10px;
     margin-right: 10px; }
-  .group--form .btn--next span, .group--form .btn--telegram span {
+  .page--tm-urban-edition .section--form .group--form .btn--next span, .page--tm-urban-edition .section--form .group--form .btn--telegram span {
     display: block; }
-  .group--form .btn--next, .group--form .btn--telegram, .group--form .btn--next:active, .group--form .btn--telegram:active, .group--form .btn--next:focus, .group--form .btn--telegram:focus, .group--form .btn--next:visited, .group--form .btn--telegram:visited {
+  .page--tm-urban-edition .section--form .group--form .btn--next, .page--tm-urban-edition .section--form .group--form .btn--telegram, .page--tm-urban-edition .section--form .group--form .btn--next:active, .page--tm-urban-edition .section--form .group--form .btn--telegram:active, .page--tm-urban-edition .section--form .group--form .btn--next:focus, .page--tm-urban-edition .section--form .group--form .btn--telegram:focus, .page--tm-urban-edition .section--form .group--form .btn--next:visited, .page--tm-urban-edition .section--form .group--form .btn--telegram:visited {
     background: white;
     color: #552453; }
-  .group--form .btn--next:hover, .group--form .btn--telegram:hover {
+  .page--tm-urban-edition .section--form .group--form .btn--next:hover, .page--tm-urban-edition .section--form .group--form .btn--telegram:hover {
     background: #eee;
     color: #552453; }
 
@@ -2966,6 +2949,21 @@ body {
   .page--tm-urban-edition .section--form .group--form {
     padding: 80px 80px 200px 80px;
     background: var(--background-primary); }
+    .page--tm-urban-edition .section--form .group--form .btn--next svg {
+      fill: currentColor; }
+    .page--tm-urban-edition .section--form .group--form .btn--telegram svg {
+      fill: currentColor; }
+    .page--tm-urban-edition .section--form .group--form .group--cta {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 120px; }
+      .page--tm-urban-edition .section--form .group--form .group--cta .btn {
+        font-size: 24px;
+        padding: 20px 30px;
+        min-width: 130px; }
+      .page--tm-urban-edition .section--form .group--form .group--cta > .btn + .btn {
+        margin-left: 20px; }
   .page--tm-urban-edition .section--form .form__title {
     font-size: 68px;
     line-height: 1;
@@ -3008,14 +3006,16 @@ body {
         margin-bottom: 20px; }
       .page--tm-urban-edition .section--form .group--controls > .group--control {
         flex: 1 1 100%;
-        max-width: 100%; } }
+        max-width: 100%; }
+      .page--tm-urban-edition .section--form .group--cta {
+        margin-top: 60px; } }
 
 .page--tm-urban-edition #step-3 .form__abstract {
-  margin: 70px 0 120px 0; }
+  margin: 70px 0 0 0; }
 
 @media (max-width: 1023px) {
   .page--tm-urban-edition #step-3 .form__abstract {
-    margin: 70px 0 60px 0; } }
+    margin: 70px 0 0 0; } }
 
 .page--tm-urban-edition [data-line-right-immediate] .word {
   display: inline-block; }

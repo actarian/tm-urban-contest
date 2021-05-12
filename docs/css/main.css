@@ -2377,12 +2377,18 @@ h6 {
 .group--form {
   padding: 80px;
   background: var(--background-primary); }
+  .group--form .btn--next svg {
+    fill: currentColor; }
+  .group--form .btn--telegram svg {
+    fill: currentColor; }
   .group--form .group--cta {
     display: flex;
     justify-content: center;
     align-items: center; }
     .group--form .group--cta .btn {
-      font-size: 24px; }
+      font-size: 24px;
+      padding: 20px 30px;
+      min-width: 130px; }
     .group--form .group--cta > .btn + .btn {
       margin-left: 20px; }
 
@@ -2403,7 +2409,8 @@ h6 {
     cursor: pointer; }
   .group--control--file .control {
     margin-right: 20px;
-    pointer-events: none; }
+    pointer-events: none;
+    font-size: 18px; }
   .group--control--file .btn {
     pointer-events: none; }
   .group--control--file:hover .btn {
@@ -2505,9 +2512,9 @@ h6 {
   .group--checkbox input[type="checkbox"] {
     position: absolute;
     visibility: hidden; }
-    .group--checkbox input[type="checkbox"]:not(:checked) + label .icon-checkbox {
+    .group--checkbox input[type="checkbox"]:not(:checked) + label .icon--checkbox {
       display: flex; }
-    .group--checkbox input[type="checkbox"]:checked + label .icon-checkbox-checked {
+    .group--checkbox input[type="checkbox"]:checked + label .icon--checkbox-checked {
       display: flex; }
 
 .group--controls {

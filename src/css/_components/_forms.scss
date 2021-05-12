@@ -59,10 +59,18 @@ $invalid: $foreground-primary;
 
 	.btn--next {
 		@extend %btn-rect;
+
+		svg {
+			fill: currentColor;
+		}
 	}
 
 	.btn--telegram {
 		@extend %btn-rect;
+
+		svg {
+			fill: currentColor;
+		}
 	}
 
 	.group--cta {
@@ -72,6 +80,8 @@ $invalid: $foreground-primary;
 
 		.btn {
 			font-size: 24px;
+			padding: 20px 30px;
+			min-width: 130px;
 		}
 
 		&>.btn+.btn {
@@ -101,6 +111,7 @@ $invalid: $foreground-primary;
 	.control {
 		margin-right: 20px;
 		pointer-events: none;
+		font-size: 18px;
 	}
 
 	.btn {
@@ -200,11 +211,11 @@ $invalid: $foreground-primary;
 		position: absolute;
 		visibility: hidden;
 
-		&:not(:checked)+label .icon-checkbox {
+		&:not(:checked)+label .icon--checkbox {
 			display: flex;
 		}
 
-		&:checked+label .icon-checkbox-checked {
+		&:checked+label .icon--checkbox-checked {
 			display: flex;
 		}
 	}

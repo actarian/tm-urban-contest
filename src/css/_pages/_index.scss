@@ -305,6 +305,11 @@ body {
 			}
 		}
 
+		.group--form {
+			padding: 80px 80px 200px 80px;
+			background: $background-primary;
+		}
+
 		.form__title {
 			font-size: 68px;
 			line-height: 1;
@@ -350,7 +355,7 @@ body {
 			.group--form {
 				display: block;
 				margin: 0;
-				padding: 80px 10px;
+				padding: 80px 10px 120px 10px;
 				appearance: none;
 			}
 
@@ -373,7 +378,13 @@ body {
 
 	#step-3 {
 		.form__abstract {
-			margin-top: 40px;
+			margin: 70px 0 120px 0;
+		}
+
+		@media (max-width: 1023px) {
+			.form__abstract {
+				margin: 70px 0 60px 0;
+			}
 		}
 	}
 

@@ -50,8 +50,6 @@ $invalid: $foreground-primary;
 }
 
 .group--form {
-	padding: 80px;
-	background: $background-primary;
 
 	.btn {
 		@extend %btn-rect-stroked;

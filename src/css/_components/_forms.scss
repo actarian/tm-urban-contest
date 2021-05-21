@@ -133,13 +133,13 @@ $invalid: $foreground-primary;
 }
 
 .group--checkbox {
-	max-width: 420px;
+	max-width: 480px;
 	margin: 0 auto 20px auto;
 	position: relative;
 
 	label {
 		display: flex;
-		align-items: center;
+		align-items: flex-start;
 		justify-content: center;
 		cursor: pointer;
 
@@ -158,6 +158,8 @@ $invalid: $foreground-primary;
 			font-family: $font-secondary;
 			font-size: 18px;
 			text-transform: none;
+			line-height: 1.4;
+			padding-top: 9px;
 
 			&>a {
 				@extend %btn-link;

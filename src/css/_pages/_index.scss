@@ -436,6 +436,19 @@ body {
 		color: #c11522;
 	}
 
+	.btn--link {
+		@extend %btn-link;
+		font-weight: 600;
+
+		&,
+		&:link,
+		&:active,
+		&:visited,
+		&:hover {
+			color: #c11522;
+		}
+	}
+
 	@media (max-width: 1023px) {}
 
 	@media (min-width: 1024px) {}

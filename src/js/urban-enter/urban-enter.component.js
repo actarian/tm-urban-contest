@@ -1,14 +1,16 @@
-export class UrbanEnter {
+import { Component, getContext } from 'rxcomp';
 
-	constructor(node) {
+export class UrbanEnterComponent extends Component {
+
+	onInit() {
+		const { node } = getContext(this);
 		this.node = node;
-		this.currentStep = 0;
 		this.onScroll = this.onScroll.bind(this);
 		window.addEventListener('scroll', this.onScroll);
 		this.onScroll();
 	}
 
-	destroy() {
+	onDestroy() {
 		window.removeEventListener('scroll', this.onScroll);
 	}
 
@@ -24,14 +26,8 @@ export class UrbanEnter {
 			node.classList.remove('enter');
 		}
 	}
-
-	static items = [];
-
-	static init() {
-		return this.items = Array.prototype.slice.call(document.querySelectorAll('[urban-enter]')).map(node => new UrbanEnter(node));
-	}
-
-	static destroy() {
-		return this.items.forEach(item => item.destroy());
-	}
 }
+
+UrbanEnterComponent.meta = {
+	selector: '[urban-enter]',
+};

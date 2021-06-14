@@ -309,11 +309,19 @@ $invalid: $foreground-primary;
 	}
 }
 
+[control-checkbox],
 [control-text],
 [control-file],
 [control-custom-select] {
 	display: block;
 	margin-bottom: 50px;
+}
+
+[control-checkbox] {
+	max-width: 480px;
+	margin: 0 auto 50px auto;
+
+	@include unselectable();
 }
 
 errors-component {

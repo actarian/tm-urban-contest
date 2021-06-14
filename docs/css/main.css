@@ -2886,11 +2886,20 @@ h6 {
     visibility: hidden;
     pointer-events: none; }
 
+[control-checkbox],
 [control-text],
 [control-file],
 [control-custom-select] {
   display: block;
   margin-bottom: 50px; }
+
+[control-checkbox] {
+  max-width: 480px;
+  margin: 0 auto 50px auto;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+      -ms-user-select: none;
+          user-select: none; }
 
 errors-component {
   display: block;

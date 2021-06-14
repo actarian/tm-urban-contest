@@ -1,12 +1,15 @@
-export class UrbanVideo {
+import { Component, getContext } from 'rxcomp';
 
-	constructor(node) {
+export class UrbanVideoComponent extends Component {
+
+	onInit() {
+		const { node } = getContext(this);
 		this.node = node;
 		this.onClick = this.onClick.bind(this);
 		node.addEventListener('click', this.onClick);
 	}
 
-	destroy() {
+	onDestroy() {
 		const node = this.node;
 		node.removeEventListener('click', this.onClick);
 	}
@@ -23,13 +26,8 @@ export class UrbanVideo {
 		}
 	}
 
-	static items = [];
-
-	static init() {
-		return this.items = Array.prototype.slice.call(document.querySelectorAll('[urban-video]')).map(node => new UrbanVideo(node));
-	}
-
-	static destroy() {
-		return this.items.forEach(item => item.destroy());
-	}
 }
+
+UrbanVideoComponent.meta = {
+	selector: '[urban-video]',
+};

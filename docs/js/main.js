@@ -659,6 +659,10 @@ ControlComponent.meta = {
     this.label = this.label || 'label';
   };
 
+  _proto.setTouched = function setTouched(event) {
+    this.control.touched = true;
+  };
+
   return ControlCheckboxComponent;
 }(ControlComponent);
 ControlCheckboxComponent.meta = {
@@ -666,7 +670,7 @@ ControlCheckboxComponent.meta = {
   inputs: ['control', 'label'],
   template:
   /* html */
-  "\n\t\t<div class=\"group--checkbox\" [class]=\"{ required: control.validators.length }\">\n\t\t\t<input type=\"checkbox\" class=\"control\" [id]=\"control.name\" [formControl]=\"control\" [value]=\"true\" />\n\t\t\t<label [labelFor]=\"control.name\">\n\t\t\t\t<svg class=\"icon icon--checkbox\"><use xlink:href=\"#checkbox\"></use></svg>\n\t\t\t\t<svg class=\"icon icon--checkbox-checked\"><use xlink:href=\"#checkbox-checked\"></use></svg>\n\t\t\t\t<span [innerHTML]=\"label | html\"></span>\n\t\t\t</label>\n\t\t\t<span class=\"required__badge\" [innerHTML]=\"'required' | label\"></span>\n\t\t</div>\n\t\t<errors-component [control]=\"control\"></errors-component>\n\t"
+  "\n\t\t<div class=\"group--checkbox\" [class]=\"{ required: control.validators.length }\">\n\t\t\t<input type=\"checkbox\" class=\"control\" [id]=\"control.name\" [formControl]=\"control\" [value]=\"true\" />\n\t\t\t<label [labelFor]=\"control.name\" (click)=\"setTouched($event)\">\n\t\t\t\t<svg class=\"icon icon--checkbox\"><use xlink:href=\"#checkbox\"></use></svg>\n\t\t\t\t<svg class=\"icon icon--checkbox-checked\"><use xlink:href=\"#checkbox-checked\"></use></svg>\n\t\t\t\t<span [innerHTML]=\"label | html\"></span>\n\t\t\t</label>\n\t\t\t<span class=\"required__badge\" [innerHTML]=\"'required' | label\"></span>\n\t\t</div>\n\t\t<errors-component [control]=\"control\"></errors-component>\n\t"
 };var KeyboardService = /*#__PURE__*/function () {
   function KeyboardService() {}
 
@@ -1012,6 +1016,46 @@ ControlsModule.meta = {
   imports: [],
   declarations: [].concat(factories$1, pipes$1),
   exports: [].concat(factories$1, pipes$1)
+};var UrbanEnterComponent = /*#__PURE__*/function (_Component) {
+  _inheritsLoose(UrbanEnterComponent, _Component);
+
+  function UrbanEnterComponent() {
+    return _Component.apply(this, arguments) || this;
+  }
+
+  var _proto = UrbanEnterComponent.prototype;
+
+  _proto.onInit = function onInit() {
+    var _getContext = rxcomp.getContext(this),
+        node = _getContext.node;
+
+    this.node = node;
+    this.onScroll = this.onScroll.bind(this);
+    window.addEventListener('scroll', this.onScroll);
+    this.onScroll();
+  };
+
+  _proto.onDestroy = function onDestroy() {
+    window.removeEventListener('scroll', this.onScroll);
+  };
+
+  _proto.onScroll = function onScroll() {
+    var h = window.innerHeight;
+    var node = this.node;
+    var rect = node.getBoundingClientRect();
+    var pow = Math.max(0, Math.min(1, 1 - (rect.top - h / 2) / (h / 2)));
+
+    if (pow > 0) {
+      node.classList.add('enter');
+    } else {
+      node.classList.remove('enter');
+    }
+  };
+
+  return UrbanEnterComponent;
+}(rxcomp.Component);
+UrbanEnterComponent.meta = {
+  selector: '[urban-enter]'
 };var HttpService = /*#__PURE__*/function () {
   function HttpService() {}
 
@@ -1406,72 +1450,25 @@ var UrbanFormComponent = /*#__PURE__*/function (_Component) {
 }(rxcomp.Component);
 UrbanFormComponent.meta = {
   selector: '[urban-form]'
-};var AppModule = /*#__PURE__*/function (_Module) {
-  _inheritsLoose(AppModule, _Module);
+};var UrbanVideoComponent = /*#__PURE__*/function (_Component) {
+  _inheritsLoose(UrbanVideoComponent, _Component);
 
-  function AppModule() {
-    return _Module.apply(this, arguments) || this;
+  function UrbanVideoComponent() {
+    return _Component.apply(this, arguments) || this;
   }
 
-  return AppModule;
-}(rxcomp.Module);
-AppModule.meta = {
-  imports: [rxcomp.CoreModule, rxcompForm.FormModule, CommonModule, ControlsModule],
-  declarations: [UrbanFormComponent],
-  bootstrap: AppComponent
-};var UrbanEnter = /*#__PURE__*/function () {
-  function UrbanEnter(node) {
-    this.node = node;
-    this.currentStep = 0;
-    this.onScroll = this.onScroll.bind(this);
-    window.addEventListener('scroll', this.onScroll);
-    this.onScroll();
-  }
+  var _proto = UrbanVideoComponent.prototype;
 
-  var _proto = UrbanEnter.prototype;
+  _proto.onInit = function onInit() {
+    var _getContext = rxcomp.getContext(this),
+        node = _getContext.node;
 
-  _proto.destroy = function destroy() {
-    window.removeEventListener('scroll', this.onScroll);
-  };
-
-  _proto.onScroll = function onScroll() {
-    var h = window.innerHeight;
-    var node = this.node;
-    var rect = node.getBoundingClientRect();
-    var pow = Math.max(0, Math.min(1, 1 - (rect.top - h / 2) / (h / 2)));
-
-    if (pow > 0) {
-      node.classList.add('enter');
-    } else {
-      node.classList.remove('enter');
-    }
-  };
-
-  UrbanEnter.init = function init() {
-    return this.items = Array.prototype.slice.call(document.querySelectorAll('[urban-enter]')).map(function (node) {
-      return new UrbanEnter(node);
-    });
-  };
-
-  UrbanEnter.destroy = function destroy() {
-    return this.items.forEach(function (item) {
-      return item.destroy();
-    });
-  };
-
-  return UrbanEnter;
-}();
-
-_defineProperty(UrbanEnter, "items", []);var UrbanVideo = /*#__PURE__*/function () {
-  function UrbanVideo(node) {
     this.node = node;
     this.onClick = this.onClick.bind(this);
     node.addEventListener('click', this.onClick);
-  }
+  };
 
-  var _proto = UrbanVideo.prototype;
-
-  _proto.destroy = function destroy() {
+  _proto.onDestroy = function onDestroy() {
     var node = this.node;
     node.removeEventListener('click', this.onClick);
   };
@@ -1489,63 +1486,21 @@ _defineProperty(UrbanEnter, "items", []);var UrbanVideo = /*#__PURE__*/function 
     }
   };
 
-  UrbanVideo.init = function init() {
-    return this.items = Array.prototype.slice.call(document.querySelectorAll('[urban-video]')).map(function (node) {
-      return new UrbanVideo(node);
-    });
-  };
+  return UrbanVideoComponent;
+}(rxcomp.Component);
+UrbanVideoComponent.meta = {
+  selector: '[urban-video]'
+};var AppModule = /*#__PURE__*/function (_Module) {
+  _inheritsLoose(AppModule, _Module);
 
-  UrbanVideo.destroy = function destroy() {
-    return this.items.forEach(function (item) {
-      return item.destroy();
-    });
-  };
+  function AppModule() {
+    return _Module.apply(this, arguments) || this;
+  }
 
-  return UrbanVideo;
-}();
-
-_defineProperty(UrbanVideo, "items", []);document.addEventListener('DOMContentLoaded', function () {
-  var enters = UrbanEnter.init(); // const forms = UrbanForm.init();
-
-  var videos = UrbanVideo.init();
-});
-rxcomp.Browser.bootstrap(AppModule);
-/*
-// FORM WIZARD
-
-const steps = Array.prototype.slice.call(document.querySelectorAll('.steps__item'));
-
-let currentStep = -1;
-
-const onUpdateStep = () => {
-	steps.forEach((step, i) => {
-		i === currentStep ? step.classList.add('active') : step.classList.remove('active');
-	});
-}
-
-const onNextStep = () => {
-	if (currentStep < 3) {
-		currentStep++;
-	}
-	onUpdateStep();
-}
-
-const onPrevStep = () => {
-	if (currentStep > 0) {
-		currentStep--;
-	}
-	onUpdateStep();
-}
-
-const nexts = Array.prototype.slice.call(document.querySelectorAll('.btn--next'));
-nexts.forEach(next => {
-	next.addEventListener('click', onNextStep);
-});
-
-const prevs = Array.prototype.slice.call(document.querySelectorAll('.btn--prev'));
-prevs.forEach(prev => {
-	prev.addEventListener('click', onPrevStep);
-});
-
-onNextStep();
-*/})));
+  return AppModule;
+}(rxcomp.Module);
+AppModule.meta = {
+  imports: [rxcomp.CoreModule, rxcompForm.FormModule, CommonModule, ControlsModule],
+  declarations: [UrbanEnterComponent, UrbanFormComponent, UrbanVideoComponent],
+  bootstrap: AppComponent
+};rxcomp.Browser.bootstrap(AppModule);})));

@@ -6,6 +6,9 @@ export class ControlCheckboxComponent extends ControlComponent {
 		this.label = this.label || 'label';
 	}
 
+	setTouched(event) {
+		this.control.touched = true;
+	}
 }
 
 ControlCheckboxComponent.meta = {
@@ -14,7 +17,7 @@ ControlCheckboxComponent.meta = {
 	template: /* html */ `
 		<div class="group--checkbox" [class]="{ required: control.validators.length }">
 			<input type="checkbox" class="control" [id]="control.name" [formControl]="control" [value]="true" />
-			<label [labelFor]="control.name">
+			<label [labelFor]="control.name" (click)="setTouched($event)">
 				<svg class="icon icon--checkbox"><use xlink:href="#checkbox"></use></svg>
 				<svg class="icon icon--checkbox-checked"><use xlink:href="#checkbox-checked"></use></svg>
 				<span [innerHTML]="label | html"></span>

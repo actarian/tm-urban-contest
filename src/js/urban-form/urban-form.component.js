@@ -105,9 +105,9 @@ export class UrbanFormComponent extends Component {
 			} else {
 				const date = new Date(`${match[2]}/${match[1]}/${match[3]}`);
 				const now = new Date();
-				if (now.getFullYear() - date.getFullYear() >= 18 &&
-					now.getMonth() - date.getMonth() >= 0 &&
-					(now.getMonth() - date.getMonth() > 0 || now.getDate() - date.getDate() >= 0)) {
+				if (now.getFullYear() - date.getFullYear() > 18 ||
+					(now.getFullYear() - date.getFullYear() == 18 && now.getMonth() - date.getMonth() > 0) ||
+					(now.getFullYear() - date.getFullYear() == 18 && now.getMonth() - date.getMonth() == 0 && now.getDate() - date.getDate() >= 0)) {
 					return true;
 				} else {
 					return false;

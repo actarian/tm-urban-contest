@@ -1198,7 +1198,7 @@ function AgeValidator(years) {
 
     var now = new Date();
 
-    if (now.getFullYear() - date.getFullYear() >= years && now.getMonth() - date.getMonth() >= 0 && (now.getMonth() - date.getMonth() > 0 || now.getDate() - date.getDate() >= 0)) {
+    if (now.getFullYear() - date.getFullYear() > years || now.getFullYear() - date.getFullYear() == years && now.getMonth() - date.getMonth() > 0 || now.getFullYear() - date.getFullYear() == years && now.getMonth() - date.getMonth() == 0 && now.getDate() - date.getDate() >= 0) {
       return null;
     } else {
       return {
@@ -1392,7 +1392,7 @@ var UrbanFormComponent = /*#__PURE__*/function (_Component) {
           var date = new Date(match[2] + "/" + match[1] + "/" + match[3]);
           var now = new Date();
 
-          if (now.getFullYear() - date.getFullYear() >= 18 && now.getMonth() - date.getMonth() >= 0 && (now.getMonth() - date.getMonth() > 0 || now.getDate() - date.getDate() >= 0)) {
+          if (now.getFullYear() - date.getFullYear() > 18 || now.getFullYear() - date.getFullYear() == 18 && now.getMonth() - date.getMonth() > 0 || now.getFullYear() - date.getFullYear() == 18 && now.getMonth() - date.getMonth() == 0 && now.getDate() - date.getDate() >= 0) {
             return true;
           } else {
             return false;

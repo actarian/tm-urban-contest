@@ -19,9 +19,9 @@ export default function AgeValidator(years) {
 			date = new Date(`${match[2]}/${match[1]}/${match[3]}`);
 		}
 		const now = new Date();
-		if (now.getFullYear() - date.getFullYear() >= years &&
-			now.getMonth() - date.getMonth() >= 0 &&
-			(now.getMonth() - date.getMonth() > 0 || now.getDate() - date.getDate() >= 0)) {
+		if (now.getFullYear() - date.getFullYear() > years ||
+			(now.getFullYear() - date.getFullYear() == years && now.getMonth() - date.getMonth() > 0) ||
+			(now.getFullYear() - date.getFullYear() == years && now.getMonth() - date.getMonth() == 0 && now.getDate() - date.getDate() >= 0)) {
 			return null;
 		} else {
 			return {

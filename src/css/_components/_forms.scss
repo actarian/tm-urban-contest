@@ -88,7 +88,6 @@ $invalid: $foreground-primary;
 
 .group--control {
 	padding: 0 10px;
-	margin-bottom: 50px;
 
 	label {
 		display: block;
@@ -186,8 +185,147 @@ $invalid: $foreground-primary;
 	display: flex;
 	flex-wrap: wrap;
 
-	&>.group--control {
+	&>div {
 		flex: 1 1 50%;
 		max-width: 50%;
+	}
+
+	&>.group--control {
+		margin-bottom: 50px;
+	}
+}
+
+.required__badge {
+	display: none;
+}
+
+.group--form--select {
+	position: relative;
+	background: transparent;
+	border: none;
+	border-bottom: 2px solid transparent;
+	border-radius: 0;
+	cursor: pointer;
+
+	input {
+		pointer-events: none;
+	}
+
+	.caret-down {
+		width: 24px;
+		height: 24px;
+		pointer-events: none;
+		margin-right: -7px;
+	}
+
+	@include media-down(xs) {
+		margin: 0 0 10px 0;
+	}
+}
+
+.control--select {
+	font-size: $size;
+	text-transform: none;
+	line-height: 1.2;
+	min-height: 44px;
+	cursor: pointer;
+
+	.multiple>& {
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		max-width: calc(100% - 23px);
+	}
+}
+
+.control--custom-select {
+	line-height: 1;
+	cursor: pointer;
+
+	.multiple>& {
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		max-width: calc(100% - 23px);
+	}
+}
+
+[control-custom-select] {
+	position: relative;
+
+	label {
+		display: block;
+		font-family: $font-secondary;
+		font-size: 18px;
+		line-height: 1;
+		transition: transform .35s ease-in-out;
+	}
+
+	.group--form--select {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: flex-start;
+		padding: 0 10px;
+	}
+
+	.group--control-select {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+
+		svg {
+			fill: currentColor;
+		}
+	}
+
+	.control--custom-select {
+		@include autofill(21px, 300, 2, 0, $font-secondary, white, transparent);
+		display: block;
+		width: 100%;
+		appearance: none;
+		background: none;
+		border: none;
+		outline: none;
+		border-bottom: 2px solid white;
+		font-family: $font-secondary;
+		color: white;
+		line-height: 2;
+		font-size: 21px;
+	}
+
+	.dropdown {
+		top: 100%;
+		width: 100%;
+		left: 0;
+		border-radius: 0;
+	}
+
+	&.hidden {
+		display: block;
+		visibility: hidden;
+		pointer-events: none;
+	}
+}
+
+[control-text],
+[control-file],
+[control-custom-select] {
+	display: block;
+	margin-bottom: 50px;
+}
+
+errors-component {
+	display: block;
+	margin-top: 5px;
+	margin-bottom: 0;
+	padding: 0 10px;
+
+	.error {
+		font-family: $font-secondary;
+		font-size: 13px;
+		font-weight: 600;
+		letter-spacing: 1px;
 	}
 }

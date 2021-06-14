@@ -1,12 +1,15 @@
+import { Browser } from 'rxcomp';
+import { AppModule } from './app.module';
 import { UrbanEnter } from './urban-enter/urban-enter';
-import { UrbanForm } from './urban-form/urban-form';
 import { UrbanVideo } from './urban-video/urban-video';
 
 document.addEventListener('DOMContentLoaded', () => {
 	const enters = UrbanEnter.init();
-	const forms = UrbanForm.init();
+	// const forms = UrbanForm.init();
 	const videos = UrbanVideo.init();
 });
+
+Browser.bootstrap(AppModule);
 
 /*
 // FORM WIZARD

@@ -1,5 +1,36 @@
 <!-- @@master = ./templates/layout.html { "baseHref": "/tm-urban-contest/" } -->
 <!-- @@block = main-->
+<script>
+window.category = {
+	options: [{
+		value: 1,
+		label: "Category 01"
+	}, {
+		value: 2,
+		label: "Category 02"
+	}, {
+		value: 3,
+		label: "Category 03"
+	}, {
+		value: 4,
+		label: "Category 04"
+	}]
+};
+
+window.environment = {
+	labels: {
+		select: "Seleziona",
+		select_file: "Seleziona il file",
+		upload: "Carica",
+		error_required: "Il campo &#232; obbligatorio",
+		error_email: "Email non valida",
+		error_match: "I campi non corrispondono",
+		error_birthDate: "Data non valida",
+		error_age: "Siamo spiacenti, la tua età non permette la partecipazione al concorso.",
+	}
+};
+
+</script>
 <main class="main">
 
 	<div class="section section--bootcamp">
@@ -77,6 +108,7 @@
 			<div class="row">
 				<div class="col-md-7 offset-md-3 col-10 offset-2">
 					<div class="listing--participate">
+						<div class="listing__item" urban-enter><svg class="icon icon--shield"><use xlink:href="#shield"></use></svg> <span class="label">Leggi l’<a href="#" class="red btn--link">informativa privacy</a> e il <a href="#" class="red btn--link">regolamento</a>.</span></div>
 						<div class="listing__item" urban-enter><svg class="icon icon--picture"><use xlink:href="#picture"></use></svg> <span class="label">Carica una tua foto con una tavola da skateboarding in mano.</span></div>
 						<div class="listing__item" urban-enter><svg class="icon icon--form"><use xlink:href="#form"></use></svg> <span class="label">Compila il form e accedi al canale Telegram della categoria che ti interessa.</span></div>
 						<div class="listing__item" urban-enter><svg class="icon icon--team"><use xlink:href="#team"></use></svg> <span class="label">Entra subito in contatto con il tuo team chief. </span></div>
@@ -88,14 +120,14 @@
 		</div>
 	</div>
 
-	<div class="section section--form">
+	<div class="section section--form" urban-form>
 		<div class="container">
 			<div class="row">
 				<div class="col-md-10 offset-md-1">
 					<div class="title" urban-enter>Metti alla prova la tua creatività, iscriviti ora!</div>
-					<form class="group--form" urban-form>
+					<form class="group--form" [formGroup]="form" (submit)="onSubmit($event)" name="form" role="form" novalidate autocomplete="off">
 						<div class="steps--form">
-							<div class="steps__item stagger--childs" id="step-0">
+							<div class="steps__item stagger--childs" id="step-0" [class]="{ active: currentStep === 0 }">
 								<div class="count">
 									<div class="current">1</div>
 									<div class="of">/</div>
@@ -104,17 +136,13 @@
 								<div class="form--sm">
 									<div class="form__title">Sei anche tu uno skater?</div>
 									<div class="form__abstract">Dimostralo con una foto o un selfie assieme alla tua tavola.</div>
-									<div class="group--control group--control--file">
-										<input type="file" id="picture" />
-										<div class="control">Seleziona il file</div>
-										<button type="button" class="btn btn--file">Carica</button>
-									</div>
+									<div control-file [control]="controls.step0.controls.picture" label="Immagine"></div>
 									<div class="group--cta">
-										<button type="button" class="btn btn--next">Next</button>
+										<button type="button" class="btn btn--next" (click)="onNext($event)">Next</button>
 									</div>
 								</div>
 							</div>
-							<div class="steps__item stagger--childs" id="step-1">
+							<div class="steps__item stagger--childs" id="step-1" [class]="{ active: currentStep === 1 }">
 								<div class="count">
 									<div class="current">2</div>
 									<div class="of">/</div>
@@ -123,84 +151,43 @@
 								<div class="form--md">
 									<div class="form__title">Compila il form con i tuoi dati</div>
 									<div class="group--controls">
-										<div class="group--control">
-											<label for="firstName">Nome*</label>
-											<input type="text" class="control" id="firstName" required />
-										</div>
-										<div class="group--control">
-											<label for="lastName">Cognome*</label>
-											<input type="text" class="control" id="lastName" required />
-										</div>
-										<div class="group--control">
-											<label for="birthDate">Data di nascita* (gg/mm/aaaa)</label>
-											<input type="text" class="control" id="birthDate" required />
-										</div>
-										<div class="group--control">
-											<label for="telephone">Telefono*</label>
-											<input type="text" class="control" id="telephone" required />
-										</div>
-										<div class="group--control">
-											<label for="email">Email*</label>
-											<input type="text" class="control" id="email" required />
-										</div>
-										<div class="group--control">
-											<label for="address">Indirizzo*</label>
-											<input type="text" class="control" id="address" required />
-										</div>
-										<div class="group--control">
-											<label for="userName">Username Telegram*</label>
-											<input type="text" class="control" id="userName" required />
-										</div>
-										<div class="group--control">
-											<label for="category">Categoria preferita*</label>
-											<select class="control--select" id="category" required>
-												<option value="null">Seleziona</option>
-											</select>
-										</div>
+										<div control-text [control]="controls.step1.controls.firstName" label="Nome*"></div>
+										<div control-text [control]="controls.step1.controls.lastName" label="Cognome*"></div>
+										<div control-text [control]="controls.step1.controls.birthDate" label="Data di nascita* (gg/mm/aaaa)"></div>
+										<div control-text [control]="controls.step1.controls.telephone" label="Telefono*"></div>
+										<div control-text [control]="controls.step1.controls.email" label="Email*"></div>
+										<div control-text [control]="controls.step1.controls.address" label="Indirizzo*"></div>
+										<div control-text [control]="controls.step1.controls.userName" label="Username Telegram*"></div>
+										<div control-custom-select [control]="controls.step1.controls.category" label="Categoria preferita*"></div>
 									</div>
 									<div class="group--cta">
-										<button type="button" class="btn btn--prev">Indietro</button>
-										<button type="button" class="btn btn--next">Next</button>
+										<button type="button" class="btn btn--prev" (click)="onPrev($event)">Indietro</button>
+										<button type="button" class="btn btn--next" (click)="onNext($event)">Next</button>
 									</div>
 								</div>
 							</div>
-							<div class="steps__item stagger--childs" id="step-2">
+							<div class="steps__item stagger--childs" id="step-2" [class]="{ active: currentStep === 2 }">
 								<div class="count">
 									<div class="current">2</div>
 									<div class="of">/</div>
 									<div class="total">3</div>
 								</div>
 								<div class="form--md">
-									<div class="form__title">Inserisci i dati di chi esercita la patria potestà</div>
+									<div class="form__title">Inserisci i dati di chi esercita la rappresentanza genitoriale</div>
 									<div class="group--controls">
-										<div class="group--control">
-											<label for="parentFirstName">Nome*</label>
-											<input type="text" class="control" id="parentFirstName" required />
-										</div>
-										<div class="group--control">
-											<label for="parentLastName">Cognome*</label>
-											<input type="text" class="control" id="parentLastName" required />
-										</div>
-										<div class="group--control">
-											<label for="parentIdCard">Documento d'identità*</label>
-											<input type="text" class="control" id="parentIdCard" required />
-										</div>
-										<div class="group--control">
-											<label for="parentTelephone">Telefono*</label>
-											<input type="text" class="control" id="parentTelephone" required />
-										</div>
-										<div class="group--control">
-											<label for="parentEmail">Email*</label>
-											<input type="text" class="control" id="parentEmail" required />
-										</div>
+										<div control-text [control]="controls.step2.controls.parentFirstName" label="Nome*"></div>
+										<div control-text [control]="controls.step2.controls.parentLastName" label="Cognome*"></div>
+										<div control-text [control]="controls.step2.controls.parentIdCard" label="Documento d'identità*"></div>
+										<div control-text [control]="controls.step2.controls.parentTelephone" label="Telefono*"></div>
+										<div control-text [control]="controls.step2.controls.parentEmail" label="Email*"></div>
 									</div>
 									<div class="group--cta">
-										<button type="button" class="btn btn--prev">Indietro</button>
-										<button type="button" class="btn btn--next">Next</button>
+										<button type="button" class="btn btn--prev" (click)="onPrev($event)">Indietro</button>
+										<button type="button" class="btn btn--next" (click)="onNext($event)">Next</button>
 									</div>
 								</div>
 							</div>
-							<div class="steps__item stagger--childs" id="step-3">
+							<div class="steps__item stagger--childs" id="step-3" [class]="{ active: currentStep === 3 }">
 								<div class="count">
 									<div class="current">3</div>
 									<div class="of">/</div>
@@ -208,22 +195,8 @@
 								</div>
 								<div class="form--sm">
 									<div class="form__title">Benvenuto all’Urban Bootcamp by tau-marin</div>
-									<div class="group--checkbox">
-										<input type="checkbox" class="control" id="rulesChecked" required />
-										<label for="rulesChecked">
-											<svg class="icon icon--checkbox"><use xlink:href="#checkbox"></use></svg>
-											<svg class="icon icon--checkbox-checked"><use xlink:href="#checkbox-checked"></use></svg>
-											<span>Ho preso visione e accetto il <a href="#">Regolamento</a></span>
-										</label>
-									</div>
-									<div class="group--checkbox">
-										<input type="checkbox" class="control" id="privacyChecked" required />
-										<label for="privacyChecked">
-											<svg class="icon icon--checkbox"><use xlink:href="#checkbox"></use></svg>
-											<svg class="icon icon--checkbox-checked"><use xlink:href="#checkbox-checked"></use></svg>
-											<span>Ho preso visione dell'<a href="#">Informativa Privacy</a> e acconsento al trattamento dei dati personali</span>
-										</label>
-									</div>
+									<div control-checkbox [control]="controls.step3.controls.rulesChecked" [label]="isOfAge ? 'In qualità di soggetto maggiorenne ho preso visione e accetto il <a href=\'#\'>Regolamento</a> del concorso a premi.' : 'In qualità di esercente la responsabilità genitoriale, accetto per conto del minorenne il <a href=\'#\'>Regolamento</a> del concorso a premi e autorizzo la sua partecipazione.'"></div>
+									<div control-checkbox [control]="controls.step3.controls.privacyChecked" label="Ho preso visione dell'<a href=\'#\'>Informativa Privacy</a> e acconsento al trattamento dei dati personali"></div>
 									<div class="form__abstract">Clicca sul pulsante Telegram e in bocca al lupo!</div>
 									<div class="group--cta">
 										<button type="button" class="btn btn--telegram"><svg class="icon icon--telegram"><use xlink:href="#telegram"></use></svg> Entra in Telegram</button>

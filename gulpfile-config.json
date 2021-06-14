@@ -19,7 +19,11 @@
             "format": "umd"
           },
           "globals": {
-            "gsap": "gsap"
+            "gsap": "gsap",
+            "rxjs": "rxjs",
+            "rxjs/operators": "rxjs.operators",
+            "rxcomp": "rxcomp",
+            "rxcomp-form": "rxcomp.form"
           },
           "minify": true
         }
@@ -36,7 +40,10 @@
         {
           "input": [
             "node_modules/gsap/dist/EasePack.js",
-            "node_modules/gsap/dist/gsap.js"
+            "node_modules/gsap/dist/gsap.js",
+            "node_modules/rxjs/bundles/rxjs.umd.js",
+            "node_modules/rxcomp/dist/iife/rxcomp.js",
+            "node_modules/rxcomp-form/dist/iife/rxcomp-form.js"
           ],
           "output": "docs/js/vendors.js",
           "minify": true

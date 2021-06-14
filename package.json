@@ -13,7 +13,10 @@
   },
   "scripts": {},
   "dependencies": {
-    "gsap": "3.6.0"
+    "gsap": "3.6.0",
+    "rxcomp": "1.0.0-beta.20",
+    "rxcomp-form": "1.0.0-beta.18",
+    "rxjs": "6.6.7"
   },
   "devDependencies": {
     "gulpfile-config": "1.0.0-alpha.14"

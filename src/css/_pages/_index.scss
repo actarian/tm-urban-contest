@@ -449,6 +449,35 @@ body {
 		}
 	}
 
+	.section--generic {
+		padding: 120px 0;
+		font-family: $font-secondary;
+		min-height: 100vh;
+
+		h2 {
+			margin-bottom: 40px;
+			font-family: $font-primary;
+			font-size: 25px;
+			font-weight: 900 !important;
+		}
+
+		strong,
+		u {
+			font-family: $font-primary;
+			font-size: 19px;
+			font-weight: 900 !important;
+			text-decoration: none;
+		}
+
+		a {
+			@extend .btn--link;
+		}
+
+		li {
+			margin: 0 !important;
+		}
+	}
+
 	@media (max-width: 1023px) {}
 
 	@media (min-width: 1024px) {}

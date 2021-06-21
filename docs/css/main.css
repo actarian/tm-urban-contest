@@ -2913,7 +2913,7 @@ errors-component {
     letter-spacing: 1px; }
 
 .nav--dropdown > li > a,
-.nav--dropdown > li > button, .page--tm-urban-edition .section--form .group--form .btn, .page--tm-urban-edition .section--form .group--form .btn--next, .page--tm-urban-edition .section--form .group--form .btn--telegram, .group--checkbox label > span > a, .page--tm-urban-edition .btn--link, .btn, .page--tm-urban-edition .nav--social > .nav__item > a, .page--tm-urban-edition .nav--colophon > .nav__item > a {
+.nav--dropdown > li > button, .page--tm-urban-edition .section--form .group--form .btn, .page--tm-urban-edition .section--form .group--form .btn--next, .page--tm-urban-edition .section--form .group--form .btn--telegram, .group--checkbox label > span > a, .page--tm-urban-edition .btn--link, .page--tm-urban-edition .section--generic a, .btn, .page--tm-urban-edition .nav--social > .nav__item > a, .page--tm-urban-edition .nav--colophon > .nav__item > a {
   display: inline-block;
   padding: 0;
   border: none;
@@ -2925,20 +2925,20 @@ errors-component {
   cursor: pointer;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
   .nav--dropdown > li > a,
-  .nav--dropdown > li > button, .page--tm-urban-edition .section--form .group--form .btn, .page--tm-urban-edition .section--form .group--form .btn--next, .page--tm-urban-edition .section--form .group--form .btn--telegram, .group--checkbox label > span > a, .page--tm-urban-edition .btn--link, .btn, .page--tm-urban-edition .nav--social > .nav__item > a, .page--tm-urban-edition .nav--colophon > .nav__item > a, .nav--dropdown > li > a:active,
-  .nav--dropdown > li > button:active, .page--tm-urban-edition .section--form .group--form .btn:active, .page--tm-urban-edition .section--form .group--form .btn--next:active, .page--tm-urban-edition .section--form .group--form .btn--telegram:active, .group--checkbox label > span > a:active, .page--tm-urban-edition .btn--link:active, .btn:active, .page--tm-urban-edition .nav--social > .nav__item > a:active, .page--tm-urban-edition .nav--colophon > .nav__item > a:active, .nav--dropdown > li > a:focus,
-  .nav--dropdown > li > button:focus, .page--tm-urban-edition .section--form .group--form .btn:focus, .page--tm-urban-edition .section--form .group--form .btn--next:focus, .page--tm-urban-edition .section--form .group--form .btn--telegram:focus, .group--checkbox label > span > a:focus, .page--tm-urban-edition .btn--link:focus, .btn:focus, .page--tm-urban-edition .nav--social > .nav__item > a:focus, .page--tm-urban-edition .nav--colophon > .nav__item > a:focus, .nav--dropdown > li > a:hover,
-  .nav--dropdown > li > button:hover, .page--tm-urban-edition .section--form .group--form .btn:hover, .page--tm-urban-edition .section--form .group--form .btn--next:hover, .page--tm-urban-edition .section--form .group--form .btn--telegram:hover, .group--checkbox label > span > a:hover, .page--tm-urban-edition .btn--link:hover, .btn:hover, .page--tm-urban-edition .nav--social > .nav__item > a:hover, .page--tm-urban-edition .nav--colophon > .nav__item > a:hover, .nav--dropdown > li > a:visited,
-  .nav--dropdown > li > button:visited, .page--tm-urban-edition .section--form .group--form .btn:visited, .page--tm-urban-edition .section--form .group--form .btn--next:visited, .page--tm-urban-edition .section--form .group--form .btn--telegram:visited, .group--checkbox label > span > a:visited, .page--tm-urban-edition .btn--link:visited, .btn:visited, .page--tm-urban-edition .nav--social > .nav__item > a:visited, .page--tm-urban-edition .nav--colophon > .nav__item > a:visited {
+  .nav--dropdown > li > button, .page--tm-urban-edition .section--form .group--form .btn, .page--tm-urban-edition .section--form .group--form .btn--next, .page--tm-urban-edition .section--form .group--form .btn--telegram, .group--checkbox label > span > a, .page--tm-urban-edition .btn--link, .page--tm-urban-edition .section--generic a, .btn, .page--tm-urban-edition .nav--social > .nav__item > a, .page--tm-urban-edition .nav--colophon > .nav__item > a, .nav--dropdown > li > a:active,
+  .nav--dropdown > li > button:active, .page--tm-urban-edition .section--form .group--form .btn:active, .page--tm-urban-edition .section--form .group--form .btn--next:active, .page--tm-urban-edition .section--form .group--form .btn--telegram:active, .group--checkbox label > span > a:active, .page--tm-urban-edition .btn--link:active, .page--tm-urban-edition .section--generic a:active, .btn:active, .page--tm-urban-edition .nav--social > .nav__item > a:active, .page--tm-urban-edition .nav--colophon > .nav__item > a:active, .nav--dropdown > li > a:focus,
+  .nav--dropdown > li > button:focus, .page--tm-urban-edition .section--form .group--form .btn:focus, .page--tm-urban-edition .section--form .group--form .btn--next:focus, .page--tm-urban-edition .section--form .group--form .btn--telegram:focus, .group--checkbox label > span > a:focus, .page--tm-urban-edition .btn--link:focus, .page--tm-urban-edition .section--generic a:focus, .btn:focus, .page--tm-urban-edition .nav--social > .nav__item > a:focus, .page--tm-urban-edition .nav--colophon > .nav__item > a:focus, .nav--dropdown > li > a:hover,
+  .nav--dropdown > li > button:hover, .page--tm-urban-edition .section--form .group--form .btn:hover, .page--tm-urban-edition .section--form .group--form .btn--next:hover, .page--tm-urban-edition .section--form .group--form .btn--telegram:hover, .group--checkbox label > span > a:hover, .page--tm-urban-edition .btn--link:hover, .page--tm-urban-edition .section--generic a:hover, .btn:hover, .page--tm-urban-edition .nav--social > .nav__item > a:hover, .page--tm-urban-edition .nav--colophon > .nav__item > a:hover, .nav--dropdown > li > a:visited,
+  .nav--dropdown > li > button:visited, .page--tm-urban-edition .section--form .group--form .btn:visited, .page--tm-urban-edition .section--form .group--form .btn--next:visited, .page--tm-urban-edition .section--form .group--form .btn--telegram:visited, .group--checkbox label > span > a:visited, .page--tm-urban-edition .btn--link:visited, .page--tm-urban-edition .section--generic a:visited, .btn:visited, .page--tm-urban-edition .nav--social > .nav__item > a:visited, .page--tm-urban-edition .nav--colophon > .nav__item > a:visited {
     color: inherit;
     text-decoration: none;
     outline: none; }
 
 .nav--dropdown > li > a,
-.nav--dropdown > li > button, .page--tm-urban-edition .section--form .group--form .btn, .page--tm-urban-edition .section--form .group--form .btn--next, .page--tm-urban-edition .section--form .group--form .btn--telegram, .group--checkbox label > span > a, .page--tm-urban-edition .btn--link, .btn, .page--tm-urban-edition .nav--social > .nav__item > a, .page--tm-urban-edition .nav--colophon > .nav__item > a {
+.nav--dropdown > li > button, .page--tm-urban-edition .section--form .group--form .btn, .page--tm-urban-edition .section--form .group--form .btn--next, .page--tm-urban-edition .section--form .group--form .btn--telegram, .group--checkbox label > span > a, .page--tm-urban-edition .btn--link, .page--tm-urban-edition .section--generic a, .btn, .page--tm-urban-edition .nav--social > .nav__item > a, .page--tm-urban-edition .nav--colophon > .nav__item > a {
   transition: cubic-bezier(0.65, 0.05, 0.36, 1) 350ms; }
   .nav--dropdown > li > a[disabled],
-  .nav--dropdown > li > button[disabled], .page--tm-urban-edition .section--form .group--form .btn[disabled], .page--tm-urban-edition .section--form .group--form .btn--next[disabled], .page--tm-urban-edition .section--form .group--form .btn--telegram[disabled], .group--checkbox label > span > a[disabled], .page--tm-urban-edition .btn--link[disabled], .btn[disabled], .page--tm-urban-edition .nav--social > .nav__item > a[disabled], .page--tm-urban-edition .nav--colophon > .nav__item > a[disabled] {
+  .nav--dropdown > li > button[disabled], .page--tm-urban-edition .section--form .group--form .btn[disabled], .page--tm-urban-edition .section--form .group--form .btn--next[disabled], .page--tm-urban-edition .section--form .group--form .btn--telegram[disabled], .group--checkbox label > span > a[disabled], .page--tm-urban-edition .btn--link[disabled], .page--tm-urban-edition .section--generic a[disabled], .btn[disabled], .page--tm-urban-edition .nav--social > .nav__item > a[disabled], .page--tm-urban-edition .nav--colophon > .nav__item > a[disabled] {
     opacity: 0.5;
     pointer-events: none; }
 
@@ -3038,9 +3038,9 @@ errors-component {
     background: #eee;
     color: #552453; }
 
-.group--checkbox label > span > a, .page--tm-urban-edition .btn--link {
+.group--checkbox label > span > a, .page--tm-urban-edition .btn--link, .page--tm-urban-edition .section--generic a {
   position: relative; }
-  .group--checkbox label > span > a:after, .page--tm-urban-edition .btn--link:after {
+  .group--checkbox label > span > a:after, .page--tm-urban-edition .btn--link:after, .page--tm-urban-edition .section--generic a:after {
     content: '';
     position: absolute;
     width: 100%;
@@ -3050,16 +3050,16 @@ errors-component {
     background: currentColor;
     transform-origin: left;
     transition: transform cubic-bezier(0.65, 0.05, 0.36, 1) 350ms; }
-  .group--checkbox label > span > a svg, .page--tm-urban-edition .btn--link svg {
+  .group--checkbox label > span > a svg, .page--tm-urban-edition .btn--link svg, .page--tm-urban-edition .section--generic a svg {
     width: 24px;
     height: 24px;
     margin-left: -10px;
     margin-right: 10px; }
-  .group--checkbox label > span > a span, .page--tm-urban-edition .btn--link span {
+  .group--checkbox label > span > a span, .page--tm-urban-edition .btn--link span, .page--tm-urban-edition .section--generic a span {
     display: block; }
-  .group--checkbox label > span > a, .page--tm-urban-edition .btn--link, .group--checkbox label > span > a:active, .page--tm-urban-edition .btn--link:active, .group--checkbox label > span > a:focus, .page--tm-urban-edition .btn--link:focus, .group--checkbox label > span > a:hover, .page--tm-urban-edition .btn--link:hover, .group--checkbox label > span > a:visited, .page--tm-urban-edition .btn--link:visited {
+  .group--checkbox label > span > a, .page--tm-urban-edition .btn--link, .page--tm-urban-edition .section--generic a, .group--checkbox label > span > a:active, .page--tm-urban-edition .btn--link:active, .page--tm-urban-edition .section--generic a:active, .group--checkbox label > span > a:focus, .page--tm-urban-edition .btn--link:focus, .page--tm-urban-edition .section--generic a:focus, .group--checkbox label > span > a:hover, .page--tm-urban-edition .btn--link:hover, .page--tm-urban-edition .section--generic a:hover, .group--checkbox label > span > a:visited, .page--tm-urban-edition .btn--link:visited, .page--tm-urban-edition .section--generic a:visited {
     color: inherit; }
-  .group--checkbox label > span > a:hover:after, .page--tm-urban-edition .btn--link:hover:after {
+  .group--checkbox label > span > a:hover:after, .page--tm-urban-edition .btn--link:hover:after, .page--tm-urban-edition .section--generic a:hover:after {
     transform: scaleX(0); }
 
 @keyframes rotate-center {
@@ -3544,10 +3544,28 @@ body {
 .page--tm-urban-edition .red {
   color: #c11522; }
 
-.page--tm-urban-edition .btn--link {
+.page--tm-urban-edition .btn--link, .page--tm-urban-edition .section--generic a {
   font-weight: 600; }
-  .page--tm-urban-edition .btn--link, .page--tm-urban-edition .btn--link:link, .page--tm-urban-edition .btn--link:active, .page--tm-urban-edition .btn--link:visited, .page--tm-urban-edition .btn--link:hover {
+  .page--tm-urban-edition .btn--link, .page--tm-urban-edition .section--generic a, .page--tm-urban-edition .btn--link:link, .page--tm-urban-edition .section--generic a:link, .page--tm-urban-edition .btn--link:active, .page--tm-urban-edition .section--generic a:active, .page--tm-urban-edition .btn--link:visited, .page--tm-urban-edition .section--generic a:visited, .page--tm-urban-edition .btn--link:hover, .page--tm-urban-edition .section--generic a:hover {
     color: #c11522; }
+
+.page--tm-urban-edition .section--generic {
+  padding: 120px 0;
+  font-family: var(--font-secondary);
+  min-height: 100vh; }
+  .page--tm-urban-edition .section--generic h2 {
+    margin-bottom: 40px;
+    font-family: var(--font-primary);
+    font-size: 25px;
+    font-weight: 900 !important; }
+  .page--tm-urban-edition .section--generic strong,
+  .page--tm-urban-edition .section--generic u {
+    font-family: var(--font-primary);
+    font-size: 19px;
+    font-weight: 900 !important;
+    text-decoration: none; }
+  .page--tm-urban-edition .section--generic li {
+    margin: 0 !important; }
 
 @media (min-width: 940px) {
   .page--tm-urban-edition a,

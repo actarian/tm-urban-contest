@@ -1,19 +1,134 @@
 <!-- @@master = ./templates/layout.html { "baseHref": "/tm-urban-contest/" } -->
 <!-- @@block = main-->
 <script>
+window.province = {
+	options: [
+		{ value: "agrigento", label: "Agrigento" },
+		{ value: "alessandria", label: "Alessandria" },
+		{ value: "ancona", label: "Ancona" },
+		{ value: "aosta", label: "Aosta" },
+		{ value: "arezzo", label: "Arezzo" },
+		{ value: "ascoli piceno", label: "Ascoli Piceno" },
+		{ value: "asti", label: "Asti" },
+		{ value: "avellino", label: "Avellino" },
+		{ value: "bari", label: "Bari" },
+		{ value: "barletta-andria-trani", label: "Barletta-Andria-Trani" },
+		{ value: "belluno", label: "Belluno" },
+		{ value: "benevento", label: "Benevento" },
+		{ value: "bergamo", label: "Bergamo" },
+		{ value: "biella", label: "Biella" },
+		{ value: "bologna", label: "Bologna" },
+		{ value: "bolzano", label: "Bolzano" },
+		{ value: "brescia", label: "Brescia" },
+		{ value: "brindisi", label: "Brindisi" },
+		{ value: "cagliari", label: "Cagliari" },
+		{ value: "caltanissetta", label: "Caltanissetta" },
+		{ value: "campobasso", label: "Campobasso" },
+		{ value: "carbonia-iglesias", label: "Carbonia-Iglesias" },
+		{ value: "caserta", label: "Caserta" },
+		{ value: "catania", label: "Catania" },
+		{ value: "catanzaro", label: "Catanzaro" },
+		{ value: "chieti", label: "Chieti" },
+		{ value: "como", label: "Como" },
+		{ value: "cosenza", label: "Cosenza" },
+		{ value: "cremona", label: "Cremona" },
+		{ value: "crotone", label: "Crotone" },
+		{ value: "cuneo", label: "Cuneo" },
+		{ value: "enna", label: "Enna" },
+		{ value: "fermo", label: "Fermo" },
+		{ value: "ferrara", label: "Ferrara" },
+		{ value: "firenze", label: "Firenze" },
+		{ value: "foggia", label: "Foggia" },
+		{ value: "forlì-cesena", label: "Forlì-Cesena" },
+		{ value: "frosinone", label: "Frosinone" },
+		{ value: "genova", label: "Genova" },
+		{ value: "gorizia", label: "Gorizia" },
+		{ value: "grosseto", label: "Grosseto" },
+		{ value: "imperia", label: "Imperia" },
+		{ value: "isernia", label: "Isernia" },
+		{ value: "la spezia", label: "La Spezia" },
+		{ value: "l'aquila", label: "L'Aquila" },
+		{ value: "latina", label: "Latina" },
+		{ value: "lecce", label: "Lecce" },
+		{ value: "lecco", label: "Lecco" },
+		{ value: "livorno", label: "Livorno" },
+		{ value: "lodi", label: "Lodi" },
+		{ value: "lucca", label: "Lucca" },
+		{ value: "macerata", label: "Macerata" },
+		{ value: "mantova", label: "Mantova" },
+		{ value: "massa-carrara", label: "Massa-Carrara" },
+		{ value: "matera", label: "Matera" },
+		{ value: "messina", label: "Messina" },
+		{ value: "milano", label: "Milano" },
+		{ value: "modena", label: "Modena" },
+		{ value: "monza e della brianza", label: "Monza e della Brianza" },
+		{ value: "napoli", label: "Napoli" },
+		{ value: "novara", label: "Novara" },
+		{ value: "nuoro", label: "Nuoro" },
+		{ value: "olbia-tempio", label: "Olbia-Tempio" },
+		{ value: "oristano", label: "Oristano" },
+		{ value: "padova", label: "Padova" },
+		{ value: "palermo", label: "Palermo" },
+		{ value: "parma", label: "Parma" },
+		{ value: "pavia", label: "Pavia" },
+		{ value: "perugia", label: "Perugia" },
+		{ value: "pesaro e urbino", label: "Pesaro e Urbino" },
+		{ value: "pescara", label: "Pescara" },
+		{ value: "piacenza", label: "Piacenza" },
+		{ value: "pisa", label: "Pisa" },
+		{ value: "pistoia", label: "Pistoia" },
+		{ value: "pordenone", label: "Pordenone" },
+		{ value: "potenza", label: "Potenza" },
+		{ value: "prato", label: "Prato" },
+		{ value: "ragusa", label: "Ragusa" },
+		{ value: "ravenna", label: "Ravenna" },
+		{ value: "reggio calabria", label: "Reggio Calabria" },
+		{ value: "reggio emilia", label: "Reggio Emilia" },
+		{ value: "rieti", label: "Rieti" },
+		{ value: "rimini", label: "Rimini" },
+		{ value: "roma", label: "Roma" },
+		{ value: "rovigo", label: "Rovigo" },
+		{ value: "salerno", label: "Salerno" },
+		{ value: "medio campidano", label: "Medio Campidano" },
+		{ value: "sassari", label: "Sassari" },
+		{ value: "savona", label: "Savona" },
+		{ value: "siena", label: "Siena" },
+		{ value: "siracusa", label: "Siracusa" },
+		{ value: "sondrio", label: "Sondrio" },
+		{ value: "taranto", label: "Taranto" },
+		{ value: "teramo", label: "Teramo" },
+		{ value: "terni", label: "Terni" },
+		{ value: "torino", label: "Torino" },
+		{ value: "ogliastra", label: "Ogliastra" },
+		{ value: "trapani", label: "Trapani" },
+		{ value: "trento", label: "Trento" },
+		{ value: "treviso", label: "Treviso" },
+		{ value: "trieste", label: "Trieste" },
+		{ value: "udine", label: "Udine" },
+		{ value: "varese", label: "Varese" },
+		{ value: "venezia", label: "Venezia" },
+		{ value: "verbano-cusio-ossola", label: "Verbano-Cusio-Ossola" },
+		{ value: "vercelli", label: "Vercelli" },
+		{ value: "verona", label: "Verona" },
+		{ value: "vibo valentia", label: "Vibo Valentia" },
+		{ value: "vicenza", label: "Vicenza" },
+		{ value: "viterbo", label: "Viterbo" }
+	]
+};
+
 window.category = {
 	options: [{
-		value: 1,
-		label: "Category 01"
+		value: "video",
+		label: "Video",
+		url: "https://t.me/joinchat/Dutt5TvAZDA5M2Y0",
 	}, {
-		value: 2,
-		label: "Category 02"
+		value: "grafica",
+		label: "Grafica",
+		url: "https://t.me/joinchat/ty3nnfad2R5jMmJk",
 	}, {
-		value: 3,
-		label: "Category 03"
-	}, {
-		value: 4,
-		label: "Category 04"
+		value: "musica",
+		label: "Musica",
+		url: "https://t.me/joinchat/df25lPGIEdswMWZk",
 	}]
 };
 
@@ -108,7 +223,7 @@ window.environment = {
 			<div class="row">
 				<div class="col-md-7 offset-md-3 col-10 offset-2">
 					<div class="listing--participate">
-						<div class="listing__item" urban-enter><svg class="icon icon--shield"><use xlink:href="#shield"></use></svg> <span class="label">Leggi l’<a href="#" class="red btn--link">informativa privacy</a> e il <a href="#" class="red btn--link">regolamento</a>.</span></div>
+						<div class="listing__item" urban-enter><svg class="icon icon--shield"><use xlink:href="#shield"></use></svg> <span class="label">Leggi l’<a href="/tm-urban-contest/privacy.html" target="_blank" class="red btn--link">informativa privacy</a> e il <a href="/tm-urban-contest/regulation.html" target="_blank" class="red btn--link">regolamento</a>.</span></div>
 						<div class="listing__item" urban-enter><svg class="icon icon--picture"><use xlink:href="#picture"></use></svg> <span class="label">Carica una tua foto con una tavola da skateboarding in mano.</span></div>
 						<div class="listing__item" urban-enter><svg class="icon icon--form"><use xlink:href="#form"></use></svg> <span class="label">Compila il form e accedi al canale Telegram della categoria che ti interessa.</span></div>
 						<div class="listing__item" urban-enter><svg class="icon icon--team"><use xlink:href="#team"></use></svg> <span class="label">Entra subito in contatto con il tuo team chief. </span></div>
@@ -157,10 +272,13 @@ window.environment = {
 										<div control-text [control]="controls.step1.controls.telephone" label="Telefono*"></div>
 										<div control-text [control]="controls.step1.controls.email" label="Email*"></div>
 										<div control-text [control]="controls.step1.controls.address" label="Indirizzo*"></div>
+										<div control-text [control]="controls.step1.controls.city" label="Città*"></div>
+										<div control-custom-select [control]="controls.step1.controls.province" label="Provincia*"></div>
 										<div control-text [control]="controls.step1.controls.userName" label="Username Telegram*"></div>
 										<div control-custom-select [control]="controls.step1.controls.category" label="Categoria preferita*"></div>
 									</div>
 									<div class="group--cta">
+										<button type="button" class="btn btn--test" (click)="onTest($event)">Test</button>
 										<button type="button" class="btn btn--prev" (click)="onPrev($event)">Indietro</button>
 										<button type="button" class="btn btn--next" (click)="onNext($event)">Next</button>
 									</div>
@@ -195,11 +313,11 @@ window.environment = {
 								</div>
 								<div class="form--sm">
 									<div class="form__title">Benvenuto all’Urban Bootcamp by tau-marin</div>
-									<div control-checkbox [control]="controls.step3.controls.rulesChecked" [label]="isOfAge ? 'In qualità di soggetto maggiorenne ho preso visione e accetto il <a href=\'#\'>Regolamento</a> del concorso a premi.' : 'In qualità di esercente la responsabilità genitoriale, accetto per conto del minorenne il <a href=\'#\'>Regolamento</a> del concorso a premi e autorizzo la sua partecipazione.'"></div>
-									<div control-checkbox [control]="controls.step3.controls.privacyChecked" label="Ho preso visione dell'<a href=\'#\'>Informativa Privacy</a> e acconsento al trattamento dei dati personali"></div>
+									<div control-checkbox [control]="controls.step3.controls.rulesChecked" [label]="isOfAge ? 'In qualità di soggetto maggiorenne ho preso visione e accetto il <a href=\'/tm-urban-contest/regulation.html\' target=\'_blank\'>Regolamento</a> del concorso a premi.' : 'In qualità di esercente la responsabilità genitoriale, accetto per conto del minorenne il <a href=\'#\'>Regolamento</a> del concorso a premi e autorizzo la sua partecipazione.'"></div>
+									<div control-checkbox [control]="controls.step3.controls.privacyChecked" label="Ho preso visione dell'<a href=\'/tm-urban-contest/privacy.html\' target=\'_blank\'>Informativa Privacy</a> e acconsento al trattamento dei dati personali"></div>
 									<div class="form__abstract">Clicca sul pulsante Telegram e in bocca al lupo!</div>
 									<div class="group--cta">
-										<button type="button" class="btn btn--telegram"><svg class="icon icon--telegram"><use xlink:href="#telegram"></use></svg> Entra in Telegram</button>
+										<button type="submit" class="btn btn--telegram"><svg class="icon icon--telegram"><use xlink:href="#telegram"></use></svg> Entra in Telegram</button>
 									</div>
 								</div>
 							</div>

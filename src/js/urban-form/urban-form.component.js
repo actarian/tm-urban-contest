@@ -14,17 +14,6 @@ export class UrbanFormComponent extends Component {
 		const { node } = getContext(this);
 		this.node = node;
 		this.currentStep = 0;
-		this.onNext = this.onNext.bind(this);
-		this.onPrev = this.onPrev.bind(this);
-		const nexts = this.nexts = Array.prototype.slice.call(node.querySelectorAll('.btn--next'));
-		nexts.forEach(next => {
-			next.addEventListener('click', this.onNext);
-		});
-		const prevs = this.prevs = Array.prototype.slice.call(node.querySelectorAll('.btn--prev'));
-		prevs.forEach(prev => {
-			prev.addEventListener('click', this.onPrev);
-		});
-
 		this.error = null;
 		this.success = false;
 		const form = this.form = new FormGroup({
@@ -38,6 +27,8 @@ export class UrbanFormComponent extends Component {
 				telephone: new FormControl(null, [Validators.RequiredValidator()]),
 				email: new FormControl(null, [Validators.RequiredValidator(), Validators.EmailValidator()]),
 				address: new FormControl(null, [Validators.RequiredValidator()]),
+				city: new FormControl(null, [Validators.RequiredValidator()]),
+				province: new FormControl(null, [Validators.RequiredValidator()]),
 				userName: new FormControl(null, [Validators.RequiredValidator()]),
 				category: new FormControl(null, [Validators.RequiredValidator()]),
 			}),
@@ -56,6 +47,8 @@ export class UrbanFormComponent extends Component {
 			checkField: '',
 		});
 		const controls = this.controls = form.controls;
+		const province = controls.step1.controls.province;
+		province.options = FormService.toSelectOptions(window.province.options);
 		const category = controls.step1.controls.category;
 		category.options = FormService.toSelectOptions(window.category.options);
 		form.changes$.pipe(
@@ -74,7 +67,7 @@ export class UrbanFormComponent extends Component {
 			// group.touched = true;
 			return;
 		}
-		console.log('onNext', this.currentStep, this.form);
+		// console.log('onNext', this.currentStep, this.form);
 		if (this.currentStep === 1 && this.isOfAge) {
 			this.currentStep = 3;
 		} else if (this.currentStep === 1 && !this.isOfAge) {
@@ -118,21 +111,62 @@ export class UrbanFormComponent extends Component {
 
 	onSubmit(model) {
 		const form = this.form;
-		console.log('UrbanFormComponent.onSubmit', form.value);
-		if (form.valid) {
+		// console.log('UrbanFormComponent.onSubmit', form.value, form);
+		if (form.controls.step0.valid &&
+			form.controls.step1.valid &&
+			(this.isOfAge || form.controls.step2.valid) &&
+			form.controls.step3.valid) {
 			form.submitted = true;
-			HttpService.post$('/api/url', form.value).pipe(
+			const payload = Object.assign({
+				checkRequest: form.value.checkRequest,
+				checkField: form.value.checkField,
+			},
+				form.value.step0,
+				form.value.step1,
+				form.value.step2,
+				form.value.step3
+			);
+			HttpService.post$('/', payload).pipe(
 				first(),
 			).subscribe(_ => {
 				this.success = true;
+				window.location.href = window.category.options.find(option => option.value === form.value.step1.category).url;
 			}, error => {
 				console.log('UrbanFormComponent.error', error);
 				this.error = error;
 				this.pushChanges();
+				// window.location.href = window.category.options.find(option => option.value === form.value.step1.category).url;
 			});
 		} else {
 			form.touched = true;
 		}
+	}
+
+	onTest() {
+		const form = this.form;
+		const controls = this.controls;
+		const province = controls.step1.controls.province.options.length > 1 ? controls.step1.controls.province.options[1].id : null;
+		const category = controls.step1.controls.category.options.length > 1 ? controls.step1.controls.category.options[1].id : null;
+		form.patch({
+			step1: {
+				firstName: 'Jhon',
+				lastName: 'Appleseed',
+				birthDate: '22/04/1976',
+				telephone: '0721 411112',
+				email: 'jhonappleseed@gmail.com',
+				address: 'Strada della Campanara, 15',
+				city: 'Pesaro',
+				province: province,
+				userName: 'jappleseed',
+				category: category,
+			},
+			step3: {
+				rulesChecked: true,
+				privacyChecked: true,
+			},
+			checkRequest: window.antiforgery,
+			checkField: ''
+		});
 	}
 }
 

@@ -1317,16 +1317,6 @@ var UrbanFormComponent = /*#__PURE__*/function (_Component) {
 
     this.node = node;
     this.currentStep = 0;
-    this.onNext = this.onNext.bind(this);
-    this.onPrev = this.onPrev.bind(this);
-    var nexts = this.nexts = Array.prototype.slice.call(node.querySelectorAll('.btn--next'));
-    nexts.forEach(function (next) {
-      next.addEventListener('click', _this.onNext);
-    });
-    var prevs = this.prevs = Array.prototype.slice.call(node.querySelectorAll('.btn--prev'));
-    prevs.forEach(function (prev) {
-      prev.addEventListener('click', _this.onPrev);
-    });
     this.error = null;
     this.success = false;
     var form = this.form = new rxcompForm.FormGroup({
@@ -1340,6 +1330,8 @@ var UrbanFormComponent = /*#__PURE__*/function (_Component) {
         telephone: new rxcompForm.FormControl(null, [rxcompForm.Validators.RequiredValidator()]),
         email: new rxcompForm.FormControl(null, [rxcompForm.Validators.RequiredValidator(), rxcompForm.Validators.EmailValidator()]),
         address: new rxcompForm.FormControl(null, [rxcompForm.Validators.RequiredValidator()]),
+        city: new rxcompForm.FormControl(null, [rxcompForm.Validators.RequiredValidator()]),
+        province: new rxcompForm.FormControl(null, [rxcompForm.Validators.RequiredValidator()]),
         userName: new rxcompForm.FormControl(null, [rxcompForm.Validators.RequiredValidator()]),
         category: new rxcompForm.FormControl(null, [rxcompForm.Validators.RequiredValidator()])
       }),
@@ -1358,6 +1350,8 @@ var UrbanFormComponent = /*#__PURE__*/function (_Component) {
       checkField: ''
     });
     var controls = this.controls = form.controls;
+    var province = controls.step1.controls.province;
+    province.options = FormService.toSelectOptions(window.province.options);
     var category = controls.step1.controls.category;
     category.options = FormService.toSelectOptions(window.category.options);
     form.changes$.pipe(operators.takeUntil(this.unsubscribe$)).subscribe(function (_) {
@@ -1374,9 +1368,8 @@ var UrbanFormComponent = /*#__PURE__*/function (_Component) {
       }); // group.touched = true;
 
       return;
-    }
+    } // console.log('onNext', this.currentStep, this.form);
 
-    console.log('onNext', this.currentStep, this.form);
 
     if (this.currentStep === 1 && this.isOfAge) {
       this.currentStep = 3;
@@ -1402,22 +1395,56 @@ var UrbanFormComponent = /*#__PURE__*/function (_Component) {
   _proto.onSubmit = function onSubmit(model) {
     var _this2 = this;
 
-    var form = this.form;
-    console.log('UrbanFormComponent.onSubmit', form.value);
+    var form = this.form; // console.log('UrbanFormComponent.onSubmit', form.value, form);
 
-    if (form.valid) {
+    if (form.controls.step0.valid && form.controls.step1.valid && (this.isOfAge || form.controls.step2.valid) && form.controls.step3.valid) {
       form.submitted = true;
-      HttpService.post$('/api/url', form.value).pipe(operators.first()).subscribe(function (_) {
+      var payload = Object.assign({
+        checkRequest: form.value.checkRequest,
+        checkField: form.value.checkField
+      }, form.value.step0, form.value.step1, form.value.step2, form.value.step3);
+      HttpService.post$('/', payload).pipe(operators.first()).subscribe(function (_) {
         _this2.success = true;
+        window.location.href = window.category.options.find(function (option) {
+          return option.value === form.value.step1.category;
+        }).url;
       }, function (error) {
         console.log('UrbanFormComponent.error', error);
         _this2.error = error;
 
-        _this2.pushChanges();
+        _this2.pushChanges(); // window.location.href = window.category.options.find(option => option.value === form.value.step1.category).url;
+
       });
     } else {
       form.touched = true;
     }
+  };
+
+  _proto.onTest = function onTest() {
+    var form = this.form;
+    var controls = this.controls;
+    var province = controls.step1.controls.province.options.length > 1 ? controls.step1.controls.province.options[1].id : null;
+    var category = controls.step1.controls.category.options.length > 1 ? controls.step1.controls.category.options[1].id : null;
+    form.patch({
+      step1: {
+        firstName: 'Jhon',
+        lastName: 'Appleseed',
+        birthDate: '22/04/1976',
+        telephone: '0721 411112',
+        email: 'jhonappleseed@gmail.com',
+        address: 'Strada della Campanara, 15',
+        city: 'Pesaro',
+        province: province,
+        userName: 'jappleseed',
+        category: category
+      },
+      step3: {
+        rulesChecked: true,
+        privacyChecked: true
+      },
+      checkRequest: window.antiforgery,
+      checkField: ''
+    });
   };
 
   _createClass(UrbanFormComponent, [{

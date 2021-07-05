@@ -1343,8 +1343,8 @@ var UrbanFormComponent = /*#__PURE__*/function (_Component) {
         parentEmail: new rxcompForm.FormControl(null, [rxcompForm.Validators.RequiredValidator(), rxcompForm.Validators.EmailValidator()])
       }),
       step3: new rxcompForm.FormGroup({
-        rulesChecked: new rxcompForm.FormControl(null, [rxcompForm.Validators.RequiredValidator()]),
-        privacyChecked: new rxcompForm.FormControl(null, [rxcompForm.Validators.RequiredValidator()])
+        rulesChecked: new rxcompForm.FormControl(null, [rxcompForm.Validators.RequiredTrueValidator()]),
+        privacyChecked: new rxcompForm.FormControl(null, [rxcompForm.Validators.RequiredTrueValidator()])
       }),
       checkRequest: window.antiforgery,
       checkField: ''

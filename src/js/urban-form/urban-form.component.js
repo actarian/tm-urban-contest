@@ -40,8 +40,8 @@ export class UrbanFormComponent extends Component {
 				parentEmail: new FormControl(null, [Validators.RequiredValidator(), Validators.EmailValidator()]),
 			}),
 			step3: new FormGroup({
-				rulesChecked: new FormControl(null, [Validators.RequiredValidator()]),
-				privacyChecked: new FormControl(null, [Validators.RequiredValidator()]),
+				rulesChecked: new FormControl(null, [Validators.RequiredTrueValidator()]),
+				privacyChecked: new FormControl(null, [Validators.RequiredTrueValidator()]),
 			}),
 			checkRequest: window.antiforgery,
 			checkField: '',

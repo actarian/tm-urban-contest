@@ -1386,7 +1386,7 @@ var UrbanFormComponent = /*#__PURE__*/function (_Component) {
     } // console.log('onNext', this.currentStep, this.form);
 
 
-    if (this.currentStep === 1 && this.isOfAge || this.currentStep === 2) {
+    if (this.currentStep === 1 && this.isOfAge) {
       this.currentStep = 3;
 
       if (window.dataLayer) {
@@ -1405,10 +1405,18 @@ var UrbanFormComponent = /*#__PURE__*/function (_Component) {
     } else if (this.currentStep < 3) {
       this.currentStep++;
 
-      if (window.dataLayer) {
-        window.dataLayer.push({
-          'event': 'step form dati'
-        });
+      if (this.currentStep === 2) {
+        if (window.dataLayer) {
+          window.dataLayer.push({
+            'event': 'step accettazione benvenuto'
+          });
+        }
+      } else {
+        if (window.dataLayer) {
+          window.dataLayer.push({
+            'event': 'step form dati'
+          });
+        }
       }
     }
 

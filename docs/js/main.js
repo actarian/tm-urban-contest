@@ -1403,8 +1403,6 @@ var UrbanFormComponent = /*#__PURE__*/function (_Component) {
         });
       }
     } else if (this.currentStep < 3) {
-      this.currentStep++;
-
       if (this.currentStep === 2) {
         if (window.dataLayer) {
           window.dataLayer.push({
@@ -1418,6 +1416,8 @@ var UrbanFormComponent = /*#__PURE__*/function (_Component) {
           });
         }
       }
+
+      this.currentStep++;
     }
 
     group = this.controls["step" + this.currentStep];

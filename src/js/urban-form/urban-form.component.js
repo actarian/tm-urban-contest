@@ -69,12 +69,15 @@ export class UrbanFormComponent extends Component {
 			return;
 		}
 		// console.log('onNext', this.currentStep, this.form);
-		if (this.currentStep === 1 && this.isOfAge) {
+		if ((this.currentStep === 1 && this.isOfAge) || this.currentStep === 2) {
 			this.currentStep = 3;
-		} else if (this.currentStep === 1 && !this.isOfAge) {
-			this.currentStep = 2;
-		} else if (this.currentStep < 3) {
-			this.currentStep++;
+      window.dataLayer.push({'event': 'step accettazione benvenuto'});
+    } else if (this.currentStep === 1 && !this.isOfAge) {
+      this.currentStep = 2;
+      window.dataLayer.push({'event': 'step responsabilita genitoriale'});
+    } else if (this.currentStep < 3) {
+      this.currentStep++;
+      window.dataLayer.push({'event': 'step form dati'});
 		}
 		group = this.controls[`step${this.currentStep}`];
 		group.touched = false;

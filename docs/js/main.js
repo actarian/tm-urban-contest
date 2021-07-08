@@ -409,8 +409,8 @@ var defaultOptions = {
 var environmentOptions = window.STATIC ? environmentStatic : environmentServed;
 var options = Object.assign(defaultOptions, environmentOptions);
 options = Utils.merge(options, window.environment);
-var environment = new Environment(options);
-console.log('environment', environment);var EnvPipe = /*#__PURE__*/function (_Pipe) {
+var environment = new Environment(options); // console.log('environment', environment);
+var EnvPipe = /*#__PURE__*/function (_Pipe) {
   _inheritsLoose(EnvPipe, _Pipe);
 
   function EnvPipe() {

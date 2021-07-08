@@ -16,7 +16,7 @@ ControlCheckboxComponent.meta = {
 	inputs: ['control', 'label'],
 	template: /* html */ `
 		<div class="group--checkbox" [class]="{ required: control.validators.length }">
-			<input type="checkbox" class="control" [id]="control.name" [formControl]="control" [value]="true" />
+			<input [id]="control.name" type="checkbox" class="control" [formControl]="control" [value]="true" />
 			<label [labelFor]="control.name" (click)="setTouched($event)">
 				<svg class="icon icon--checkbox"><use xlink:href="#checkbox"></use></svg>
 				<svg class="icon icon--checkbox-checked"><use xlink:href="#checkbox-checked"></use></svg>

@@ -14,9 +14,9 @@ ControlTextComponent.meta = {
 	inputs: ['control', 'label', 'disabled'],
 	template: /* html */ `
 		<div class="group--control" [class]="{ required: control.validators.length, disabled: disabled }">
-			<label [innerHTML]="label"></label>
+			<label [labelFor]="control.name" [innerHTML]="label"></label>
 			<span class="required__badge" [innerHTML]="'required' | label"></span>
-			<input type="text" class="control" [formControl]="control" [placeholder]="label" [disabled]="disabled" />
+			<input [id]="control.name" type="text" class="control" [formControl]="control" [placeholder]="label" [disabled]="disabled" />
 		</div>
 		<errors-component [control]="control"></errors-component>
 	`

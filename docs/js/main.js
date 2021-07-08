@@ -670,7 +670,7 @@ ControlCheckboxComponent.meta = {
   inputs: ['control', 'label'],
   template:
   /* html */
-  "\n\t\t<div class=\"group--checkbox\" [class]=\"{ required: control.validators.length }\">\n\t\t\t<input type=\"checkbox\" class=\"control\" [id]=\"control.name\" [formControl]=\"control\" [value]=\"true\" />\n\t\t\t<label [labelFor]=\"control.name\" (click)=\"setTouched($event)\">\n\t\t\t\t<svg class=\"icon icon--checkbox\"><use xlink:href=\"#checkbox\"></use></svg>\n\t\t\t\t<svg class=\"icon icon--checkbox-checked\"><use xlink:href=\"#checkbox-checked\"></use></svg>\n\t\t\t\t<span [innerHTML]=\"label | html\"></span>\n\t\t\t</label>\n\t\t\t<span class=\"required__badge\" [innerHTML]=\"'required' | label\"></span>\n\t\t</div>\n\t\t<errors-component [control]=\"control\"></errors-component>\n\t"
+  "\n\t\t<div class=\"group--checkbox\" [class]=\"{ required: control.validators.length }\">\n\t\t\t<input [id]=\"control.name\" type=\"checkbox\" class=\"control\" [formControl]=\"control\" [value]=\"true\" />\n\t\t\t<label [labelFor]=\"control.name\" (click)=\"setTouched($event)\">\n\t\t\t\t<svg class=\"icon icon--checkbox\"><use xlink:href=\"#checkbox\"></use></svg>\n\t\t\t\t<svg class=\"icon icon--checkbox-checked\"><use xlink:href=\"#checkbox-checked\"></use></svg>\n\t\t\t\t<span [innerHTML]=\"label | html\"></span>\n\t\t\t</label>\n\t\t\t<span class=\"required__badge\" [innerHTML]=\"'required' | label\"></span>\n\t\t</div>\n\t\t<errors-component [control]=\"control\"></errors-component>\n\t"
 };var KeyboardService = /*#__PURE__*/function () {
   function KeyboardService() {}
 
@@ -952,7 +952,7 @@ ControlTextComponent.meta = {
   inputs: ['control', 'label', 'disabled'],
   template:
   /* html */
-  "\n\t\t<div class=\"group--control\" [class]=\"{ required: control.validators.length, disabled: disabled }\">\n\t\t\t<label [innerHTML]=\"label\"></label>\n\t\t\t<span class=\"required__badge\" [innerHTML]=\"'required' | label\"></span>\n\t\t\t<input type=\"text\" class=\"control\" [formControl]=\"control\" [placeholder]=\"label\" [disabled]=\"disabled\" />\n\t\t</div>\n\t\t<errors-component [control]=\"control\"></errors-component>\n\t"
+  "\n\t\t<div class=\"group--control\" [class]=\"{ required: control.validators.length, disabled: disabled }\">\n\t\t\t<label [labelFor]=\"control.name\" [innerHTML]=\"label\"></label>\n\t\t\t<span class=\"required__badge\" [innerHTML]=\"'required' | label\"></span>\n\t\t\t<input [id]=\"control.name\" type=\"text\" class=\"control\" [formControl]=\"control\" [placeholder]=\"label\" [disabled]=\"disabled\" />\n\t\t</div>\n\t\t<errors-component [control]=\"control\"></errors-component>\n\t"
 };var ErrorsComponent = /*#__PURE__*/function (_ControlComponent) {
   _inheritsLoose(ErrorsComponent, _ControlComponent);
 
@@ -1366,7 +1366,21 @@ var UrbanFormComponent = /*#__PURE__*/function (_Component) {
     if (!group.valid) {
       Object.keys(group.controls).forEach(function (key) {
         group.controls[key].touched = true;
-      }); // group.touched = true;
+      });
+
+      var _getContext2 = rxcomp.getContext(this),
+          node = _getContext2.node;
+
+      var firstInvalidInput = Array.prototype.slice.call(node.querySelectorAll('.invalid')).find(function (x) {
+        return x.hasAttribute('[control]');
+      });
+
+      if (firstInvalidInput) {
+        firstInvalidInput.scrollIntoView({
+          behavior: 'smooth'
+        });
+      } // group.touched = true;
+
 
       return;
     } // console.log('onNext', this.currentStep, this.form);
@@ -1374,19 +1388,28 @@ var UrbanFormComponent = /*#__PURE__*/function (_Component) {
 
     if (this.currentStep === 1 && this.isOfAge || this.currentStep === 2) {
       this.currentStep = 3;
-      window.dataLayer.push({
-        'event': 'step accettazione benvenuto'
-      });
+
+      if (window.dataLayer) {
+        window.dataLayer.push({
+          'event': 'step accettazione benvenuto'
+        });
+      }
     } else if (this.currentStep === 1 && !this.isOfAge) {
       this.currentStep = 2;
-      window.dataLayer.push({
-        'event': 'step responsabilita genitoriale'
-      });
+
+      if (window.dataLayer) {
+        window.dataLayer.push({
+          'event': 'step responsabilita genitoriale'
+        });
+      }
     } else if (this.currentStep < 3) {
       this.currentStep++;
-      window.dataLayer.push({
-        'event': 'step form dati'
-      });
+
+      if (window.dataLayer) {
+        window.dataLayer.push({
+          'event': 'step form dati'
+        });
+      }
     }
 
     group = this.controls["step" + this.currentStep];
@@ -1405,8 +1428,8 @@ var UrbanFormComponent = /*#__PURE__*/function (_Component) {
   };
 
   _proto.scrollToTop = function scrollToTop() {
-    var _getContext2 = rxcomp.getContext(this),
-        node = _getContext2.node;
+    var _getContext3 = rxcomp.getContext(this),
+        node = _getContext3.node;
 
     var stepsNode = node.querySelector('.steps--form');
     stepsNode.scrollIntoView({

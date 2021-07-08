@@ -1427,7 +1427,7 @@ var UrbanFormComponent = /*#__PURE__*/function (_Component) {
       }, form.value.step0, form.value.step1, form.value.step2, form.value.step3);
       this.busy = true;
       this.pushChanges();
-      HttpService.post$('/', payload).pipe(operators.first(), operators.finalize(function (_) {
+      HttpService.post$('https://contest.tau-marin.it/', payload).pipe(operators.first(), operators.finalize(function (_) {
         _this2.busy = false;
 
         _this2.pushChanges();

@@ -140,7 +140,7 @@ export class UrbanFormComponent extends Component {
 			);
 			this.busy = true;
 			this.pushChanges();
-			HttpService.post$('/', payload).pipe(
+			HttpService.post$('https://contest.tau-marin.it/', payload).pipe(
 				first(),
 				finalize(_ => {
 					this.busy = false;

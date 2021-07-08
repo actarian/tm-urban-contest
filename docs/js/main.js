@@ -1319,6 +1319,7 @@ var UrbanFormComponent = /*#__PURE__*/function (_Component) {
     this.currentStep = 0;
     this.error = null;
     this.success = false;
+    this.busy = false;
     var form = this.form = new rxcompForm.FormGroup({
       step0: new rxcompForm.FormGroup({
         picture: new rxcompForm.FormControl(null, [rxcompForm.Validators.RequiredValidator()])
@@ -1382,6 +1383,7 @@ var UrbanFormComponent = /*#__PURE__*/function (_Component) {
     group = this.controls["step" + this.currentStep];
     group.touched = false;
     this.pushChanges();
+    this.scrollToTop();
   };
 
   _proto.onPrev = function onPrev() {
@@ -1390,6 +1392,17 @@ var UrbanFormComponent = /*#__PURE__*/function (_Component) {
     }
 
     this.pushChanges();
+    this.scrollToTop();
+  };
+
+  _proto.scrollToTop = function scrollToTop() {
+    var _getContext2 = rxcomp.getContext(this),
+        node = _getContext2.node;
+
+    var stepsNode = node.querySelector('.steps--form');
+    stepsNode.scrollIntoView({
+      behavior: 'smooth'
+    });
   };
 
   _proto.onSubmit = function onSubmit(model) {
@@ -1403,7 +1416,13 @@ var UrbanFormComponent = /*#__PURE__*/function (_Component) {
         checkRequest: form.value.checkRequest,
         checkField: form.value.checkField
       }, form.value.step0, form.value.step1, form.value.step2, form.value.step3);
-      HttpService.post$('/', payload).pipe(operators.first()).subscribe(function (_) {
+      this.busy = true;
+      this.pushChanges();
+      HttpService.post$('/', payload).pipe(operators.first(), operators.finalize(function (_) {
+        _this2.busy = false;
+
+        _this2.pushChanges();
+      })).subscribe(function (_) {
         _this2.success = true;
         window.location.href = window.category.options.find(function (option) {
           return option.value === form.value.step1.category;
@@ -1412,8 +1431,7 @@ var UrbanFormComponent = /*#__PURE__*/function (_Component) {
         console.log('UrbanFormComponent.error', error);
         _this2.error = error;
 
-        _this2.pushChanges(); // window.location.href = window.category.options.find(option => option.value === form.value.step1.category).url;
-
+        _this2.pushChanges();
       });
     } else {
       form.touched = true;

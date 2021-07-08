@@ -316,8 +316,10 @@ window.environment = {
 									<div control-checkbox [control]="controls.step3.controls.rulesChecked" [label]="isOfAge ? 'In qualità di soggetto maggiorenne ho preso visione e accetto il <a href=\'/tm-urban-contest/regulation.html\' target=\'_blank\'>Regolamento</a> del concorso a premi.' : 'In qualità di esercente la responsabilità genitoriale, accetto per conto del minorenne il <a href=\'#\'>Regolamento</a> del concorso a premi e autorizzo la sua partecipazione.'"></div>
 									<div control-checkbox [control]="controls.step3.controls.privacyChecked" label="Ho preso visione dell'<a href=\'/tm-urban-contest/privacy.html\' target=\'_blank\'>Informativa Privacy</a> e acconsento al trattamento dei dati personali"></div>
 									<div class="form__abstract">Clicca sul pulsante Telegram e in bocca al lupo!</div>
+									<!-- spinner -->
+									<div class="spinner" *if="busy"></div>
 									<div class="group--cta">
-										<button type="submit" class="btn btn--telegram"><svg class="icon icon--telegram"><use xlink:href="#telegram"></use></svg> Entra in Telegram</button>
+										<button type="submit" class="btn btn--telegram" [class]="{ busy: busy }"><svg class="icon icon--telegram"><use xlink:href="#telegram"></use></svg> Entra in Telegram</button>
 									</div>
 								</div>
 							</div>

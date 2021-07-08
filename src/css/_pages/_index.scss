@@ -325,9 +325,15 @@ body {
 
 			.btn--telegram {
 				@extend %btn-rect;
+				transition: ease-in-out all 300ms;
 
 				svg {
 					fill: currentColor;
+				}
+
+				&.busy {
+					transform: translateY(30px);
+					opacity: 0;
 				}
 			}
 

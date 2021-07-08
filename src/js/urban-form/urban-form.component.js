@@ -1,6 +1,6 @@
 import { Component, getContext } from 'rxcomp';
 import { FormControl, FormGroup, Validators } from 'rxcomp-form';
-import { first, takeUntil } from 'rxjs/operators';
+import { finalize, first, takeUntil } from 'rxjs/operators';
 import { HttpService } from '../common/http/http.service';
 import AgeValidator from '../controls/age.validator';
 import BirthDateValidator from '../controls/birth-date.validator';
@@ -16,6 +16,7 @@ export class UrbanFormComponent extends Component {
 		this.currentStep = 0;
 		this.error = null;
 		this.success = false;
+		this.busy = false;
 		const form = this.form = new FormGroup({
 			step0: new FormGroup({
 				picture: new FormControl(null, [Validators.RequiredValidator()]),
@@ -78,6 +79,7 @@ export class UrbanFormComponent extends Component {
 		group = this.controls[`step${this.currentStep}`];
 		group.touched = false;
 		this.pushChanges();
+		this.scrollToTop();
 	}
 
 	onPrev() {
@@ -85,6 +87,13 @@ export class UrbanFormComponent extends Component {
 			this.currentStep--;
 		}
 		this.pushChanges();
+		this.scrollToTop();
+	}
+
+	scrollToTop() {
+		const { node } = getContext(this);
+		const stepsNode = node.querySelector('.steps--form');
+		stepsNode.scrollIntoView({ behavior: 'smooth' });
 	}
 
 	get isOfAge() {
@@ -126,8 +135,14 @@ export class UrbanFormComponent extends Component {
 				form.value.step2,
 				form.value.step3
 			);
+			this.busy = true;
+			this.pushChanges();
 			HttpService.post$('/', payload).pipe(
 				first(),
+				finalize(_ => {
+					this.busy = false;
+					this.pushChanges();
+				}),
 			).subscribe(_ => {
 				this.success = true;
 				window.location.href = window.category.options.find(option => option.value === form.value.step1.category).url;
@@ -135,7 +150,6 @@ export class UrbanFormComponent extends Component {
 				console.log('UrbanFormComponent.error', error);
 				this.error = error;
 				this.pushChanges();
-				// window.location.href = window.category.options.find(option => option.value === form.value.step1.category).url;
 			});
 		} else {
 			form.touched = true;

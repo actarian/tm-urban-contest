@@ -3503,6 +3503,9 @@ body {
       transition: ease-in-out all 300ms; }
       .page--tm-urban-edition .section--form .group--form .btn--telegram svg {
         fill: currentColor; }
+      .page--tm-urban-edition .section--form .group--form .btn--telegram.disabled {
+        opacity: 0.5;
+        pointer-events: none; }
       .page--tm-urban-edition .section--form .group--form .btn--telegram.busy {
         transform: translateY(30px);
         opacity: 0; }

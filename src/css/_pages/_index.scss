@@ -331,6 +331,11 @@ body {
 					fill: currentColor;
 				}
 
+				&.disabled {
+					opacity: 0.5;
+					pointer-events: none;
+				}
+
 				&.busy {
 					transform: translateY(30px);
 					opacity: 0;

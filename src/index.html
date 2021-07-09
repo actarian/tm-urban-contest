@@ -319,7 +319,7 @@ window.environment = {
 									<!-- spinner -->
 									<div class="spinner" *if="busy"></div>
 									<div class="group--cta">
-										<button type="submit" class="btn btn--telegram" [class]="{ busy: busy }"><svg class="icon icon--telegram"><use xlink:href="#telegram"></use></svg> Entra in Telegram</button>
+										<button type="submit" class="btn btn--telegram" [class]="{ busy: busy, disabled: busy || form.controls.step3.invalid }"><svg class="icon icon--telegram"><use xlink:href="#telegram"></use></svg> Entra in Telegram</button>
 									</div>
 								</div>
 							</div>

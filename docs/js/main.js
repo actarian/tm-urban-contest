@@ -409,8 +409,8 @@ var defaultOptions = {
 var environmentOptions = window.STATIC ? environmentStatic : environmentServed;
 var options = Object.assign(defaultOptions, environmentOptions);
 options = Utils.merge(options, window.environment);
-var environment = new Environment(options);
-console.log('environment', environment);var EnvPipe = /*#__PURE__*/function (_Pipe) {
+var environment = new Environment(options); // console.log('environment', environment);
+var EnvPipe = /*#__PURE__*/function (_Pipe) {
   _inheritsLoose(EnvPipe, _Pipe);
 
   function EnvPipe() {
@@ -1386,7 +1386,7 @@ var UrbanFormComponent = /*#__PURE__*/function (_Component) {
     } // console.log('onNext', this.currentStep, this.form);
 
 
-    if (this.currentStep === 1 && this.isOfAge || this.currentStep === 2) {
+    if (this.currentStep === 1 && this.isOfAge) {
       this.currentStep = 3;
 
       if (window.dataLayer) {
@@ -1403,13 +1403,21 @@ var UrbanFormComponent = /*#__PURE__*/function (_Component) {
         });
       }
     } else if (this.currentStep < 3) {
-      this.currentStep++;
-
-      if (window.dataLayer) {
-        window.dataLayer.push({
-          'event': 'step form dati'
-        });
+      if (this.currentStep === 2) {
+        if (window.dataLayer) {
+          window.dataLayer.push({
+            'event': 'step accettazione benvenuto'
+          });
+        }
+      } else {
+        if (window.dataLayer) {
+          window.dataLayer.push({
+            'event': 'step form dati'
+          });
+        }
       }
+
+      this.currentStep++;
     }
 
     group = this.controls["step" + this.currentStep];

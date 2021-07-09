@@ -74,7 +74,7 @@ export class UrbanFormComponent extends Component {
 			return;
 		}
 		// console.log('onNext', this.currentStep, this.form);
-		if ((this.currentStep === 1 && this.isOfAge) || this.currentStep === 2) {
+		if (this.currentStep === 1 && this.isOfAge) {
 			this.currentStep = 3;
 			if (window.dataLayer) {
 				window.dataLayer.push({ 'event': 'step accettazione benvenuto' });
@@ -85,10 +85,17 @@ export class UrbanFormComponent extends Component {
 				window.dataLayer.push({ 'event': 'step responsabilita genitoriale' });
 			}
 		} else if (this.currentStep < 3) {
-			this.currentStep++;
-			if (window.dataLayer) {
-				window.dataLayer.push({ 'event': 'step form dati' });
+			if (this.currentStep === 2) {
+				if (window.dataLayer) {
+					window.dataLayer.push({ 'event': 'step accettazione benvenuto' });
+				}
 			}
+			else {
+				if (window.dataLayer) {
+					window.dataLayer.push({ 'event': 'step form dati' });
+				}
+			}
+			this.currentStep++;
 		}
 		group = this.controls[`step${this.currentStep}`];
 		group.touched = false;

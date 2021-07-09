@@ -95,4 +95,4 @@ options = Utils.merge(options, window.environment);
 
 export const environment = new Environment(options);
 
-console.log('environment', environment);
+// console.log('environment', environment);

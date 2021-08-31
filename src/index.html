@@ -235,7 +235,7 @@ window.environment = {
 		</div>
 	</div>
 
-	<div class="section section--form" urban-form>
+	<div class="section section--form" urban-form *if="false">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-10 offset-md-1">
@@ -325,6 +325,16 @@ window.environment = {
 							</div>
 						</div>
 					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="section section--form" urban-form *if="true">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-10 offset-md-1">
+					<div class="title" urban-enter>Il contest è terminato!</div>
 				</div>
 			</div>
 		</div>
